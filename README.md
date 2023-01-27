@@ -19,3 +19,5 @@ npm run test:watch
 ```
 
 _Runs tests in `watch` mode_
+
+2023 Will Johnston - @wijohnst
