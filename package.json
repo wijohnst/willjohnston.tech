@@ -10,6 +10,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test:watch": "jest --watch",
+    "test:run": "jest",
     "prettier:check": "prettier --check --ignore-path .gitignore .",
     "prettier:fix": "prettier --write --ignore-path .gitignore ."
   },
@@ -21,6 +22,8 @@
     "@types/styled-components": "^5.1.26",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "next": "13.1.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -41,8 +44,10 @@
     "@testing-library/react": "^13.4.0",
     "babel-loader": "^8.3.0",
     "eslint-plugin-storybook": "^0.6.10",
+    "husky": "^8.0.3",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.8.3"
   }
 }
