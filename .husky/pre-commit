@@ -1,8 +1,5 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
-# Add the following
+npx tsc --noEmit && npx eslint --fix . && 
 npx lint-staged
-
-# If using npm, remove above and uncomment below
-# npm run lint-staged
