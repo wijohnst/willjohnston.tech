@@ -47,3 +47,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
+:root, html, body {
+	--wjt-color-least-prominent: #434343;
+	--wjt-color-most-prominent: #FFF4E3; 
+	--wjt-color-accent: #737445;
+	--wjt-color-stroke-least-prominent: #1E1E1E;
+
+	background-color: var(--wjt-color-most-prominent);
+	color: var(--wjt-color-stroke-least-prominent);
+}
