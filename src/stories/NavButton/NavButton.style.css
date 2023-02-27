@@ -1,0 +1,16 @@
+button {
+	background: none;
+	border: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+
+button:hover {
+	color: var(--wjt-color-accent);
+}
+
+.active-nav-button{
+	border-bottom: solid thin var(--wjt-color-stroke-least-prominent);
+	color: var(--wjt-color-accent);
+}
