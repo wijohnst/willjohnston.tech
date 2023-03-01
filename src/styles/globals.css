@@ -57,4 +57,11 @@ table {
 
 	background-color: var(--wjt-color-most-prominent);
 	color: var(--wjt-color-stroke-least-prominent);
+
+	--wjt-typography-display: 'Manrope';
+	--wjt-typography-body: 'Roboto Condensed';
+
+	font-family: var(--wjt-typography-body), sans-serif;
+	font-weight: 400;
+	font-size: 18pt;
 }
