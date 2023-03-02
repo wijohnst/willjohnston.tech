@@ -6,7 +6,13 @@ import { NavButton } from './NavButton';
 export default {
   title: 'Navigation/NavButton',
   component: NavButton,
-  decorators: [(Story) => <Story />],
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: '#FFF4E3' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof NavButton>;
 
 const Template: ComponentStory<typeof NavButton> = (args) => (

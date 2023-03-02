@@ -1,16 +1,18 @@
 import Head from 'next/head';
 
+import { NavBar } from '@/stories/NavBar/NavBar';
+import { NavButton } from '@/stories/NavButton/NavButton';
+
 export default function Home() {
   return (
     <>
       <Head>
-        <title>willjohnston.tech</title>
-        <meta name="description" content="Full Stack Web Development" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.png" />
+        <title>willjohnston.tech</title>
       </Head>
       <main>
-        <span>WillJohnston.tech</span>
+        <NavBar />
+        <NavButton buttonText="TEST" isActive={true} />
       </main>
     </>
   );

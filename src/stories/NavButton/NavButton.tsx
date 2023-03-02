@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-import './NavButton.style.css';
+import { Element } from './NavButton.style';
 
 type Props = {
   /** What should the button say? */
@@ -10,11 +9,7 @@ type Props = {
 };
 
 const NavButton = ({ buttonText, isActive }: Props): React.ReactElement => {
-  return (
-    <button className={isActive ? 'active-nav-button' : ''}>
-      {buttonText.toUpperCase()}
-    </button>
-  );
+  return <Element isActive={isActive}>{buttonText.toUpperCase()}</Element>;
 };
 
 export { NavButton };
