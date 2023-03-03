@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <main>
         <NavBar />
-        <NavButton buttonText="TEST" isActive={true} />
+        <NavButton pathname="" buttonText="TEST" isActive={true} />
       </main>
     </>
   );
