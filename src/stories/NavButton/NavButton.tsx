@@ -1,15 +1,31 @@
 import * as React from 'react';
-import { Element } from './NavButton.style';
 
-type Props = {
-  /** What should the button say? */
-  buttonText: string;
+import Link from 'next/link';
+
+import { NavLink } from '@/types';
+import { Element, LinkContent } from './NavButton.style';
+
+type Props = NavLink & {
   /** Is the current button selected? */
   isActive: boolean;
 };
 
-const NavButton = ({ buttonText, isActive }: Props): React.ReactElement => {
-  return <Element isActive={isActive}>{buttonText.toUpperCase()}</Element>;
+const NavButton = ({
+  pathname,
+  buttonText,
+  isActive,
+}: Props): React.ReactElement => {
+  return (
+    <Element href={`/${pathname}`}>
+      <LinkContent
+        isActive={isActive}
+        role="button"
+        aria-current={isActive ? 'page' : undefined}
+      >
+        {buttonText.toUpperCase()}
+      </LinkContent>
+    </Element>
+  );
 };
 
 export { NavButton };

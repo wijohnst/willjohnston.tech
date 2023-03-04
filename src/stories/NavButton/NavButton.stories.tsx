@@ -21,7 +21,9 @@ const Template: ComponentStory<typeof NavButton> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  pathname: '',
   buttonText: 'navbutton',
+  isActive: false,
 };
 
 export const Active = Template.bind({});
