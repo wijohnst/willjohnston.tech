@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 import { AppIcon } from '../AppIcon/AppIcon';
 import { Nav } from './NavBar.style';
 import CodeIcon from '../../../public/Icons/code-icon.svg';
-import { NavButton } from '../NavButton/NavButton';
+import { NavButton } from '@/stories/NavButton/NavButton';
 
 import { Breakpoints } from '@/types/app.types';
-import { useMediaQuery } from '@/hooks';
+import { useMediaQuery } from '@/hooks/index';
 
 type Props = {};
 
