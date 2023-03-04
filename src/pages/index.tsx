@@ -11,11 +11,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>willjohnston.tech</title>
       </Head>
-      <main>
-        <NavBar />
-        <NavButton pathname="" buttonText="TEST" isActive={true} />
-        <MissingIcon />
-      </main>
+      <main></main>
     </>
   );
 }
