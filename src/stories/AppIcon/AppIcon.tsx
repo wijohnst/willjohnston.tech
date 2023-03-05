@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import MissingIcon from '../../../public/Icons/missing-icon.svg';
+import { Element } from '@/stories/AppIcon/AppIcon.style';
+import MissingIcon from '@@/public/Icons/missing-icon.svg';
 
 type Props = {
   /** What should be displayed? */
@@ -11,7 +12,7 @@ type Props = {
 
 const AppIcon = ({ children, handleClick }: Props): React.ReactElement => {
   return (
-    <div
+    <Element
       data-testid="app-icon"
       onClick={handleClick}
       role={handleClick ? 'button' : 'none'}
@@ -21,7 +22,7 @@ const AppIcon = ({ children, handleClick }: Props): React.ReactElement => {
       ) : (
         <MissingIcon role="image" alt="Question mark i con" />
       )}
-    </div>
+    </Element>
   );
 };
 

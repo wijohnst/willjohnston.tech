@@ -9,7 +9,7 @@ export default {
   decorators: [(Story) => <Story />],
 } as ComponentMeta<typeof NavBar>;
 
-const Template: ComponentStory<typeof NavBar> = (args) => <NavBar />;
+const Template: ComponentStory<typeof NavBar> = (args) => <NavBar {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
