@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '@/styles/mediaQueries';
 
 export const Nav = styled.nav`
   display: flex;
@@ -13,5 +14,11 @@ export const Nav = styled.nav`
 `;
 
 export const IconWrapper = styled.div`
-  width: 75px;
+  @media ${device.laptopL} {
+    width: 75px;
+  }
+
+  @media ${device.tablet} {
+    width: 50px;
+  }
 `;
