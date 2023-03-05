@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 
 import { AppIcon } from '../AppIcon/AppIcon';
-import { Nav } from './NavBar.style';
+import { Nav, IconWrapper } from './NavBar.style';
 import CodeIcon from '../../../public/Icons/code-icon.svg';
 import { NavButton } from '@/stories/NavButton/NavButton';
 
@@ -29,9 +29,11 @@ const NavBar = ({}: Props): React.ReactElement => {
             buttonText="portfolio"
             isActive={router.pathname === '/Portfolio'}
           />
-          <AppIcon handleClick={() => router.push('/')}>
-            <CodeIcon />
-          </AppIcon>
+          <IconWrapper>
+            <AppIcon handleClick={() => router.push('/')}>
+              <CodeIcon />
+            </AppIcon>
+          </IconWrapper>
           <NavButton
             pathname="Services"
             buttonText="services"

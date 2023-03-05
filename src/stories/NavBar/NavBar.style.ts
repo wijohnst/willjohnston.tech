@@ -11,3 +11,7 @@ export const Nav = styled.nav`
   border-bottom: solid thin;
   border-color: var(--wjt-color-stroke-least-prominent);
 `;
+
+export const IconWrapper = styled.div`
+  width: 75px;
+`;
