@@ -1,23 +1,27 @@
 import * as React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { NavButton } from './NavButton';
+import { ColorValuesLightTheme } from '@/types/app.types';
 
 export default {
   title: 'Navigation/NavButton',
   component: NavButton,
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: '#FFF4E3' }}>
+      <div
+        style={{
+          backgroundColor: ColorValuesLightTheme['color-most-prominent'],
+          padding: '1rem',
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-} as ComponentMeta<typeof NavButton>;
+} as Meta<typeof NavButton>;
 
-const Template: ComponentStory<typeof NavButton> = (args) => (
-  <NavButton {...args} />
-);
+const Template: StoryFn<typeof NavButton> = (args) => <NavButton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

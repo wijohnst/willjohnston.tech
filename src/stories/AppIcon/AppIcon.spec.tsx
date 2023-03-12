@@ -13,4 +13,16 @@ describe('AppIcon Unit tests', () => {
     );
     expect(screen.getByTestId('app-icon')).toBeInTheDocument();
   });
+
+  it('Should render with the correct aria role', () => {
+    render(<AppIcon />);
+    expect(screen.getByRole('img')).toBeInTheDocument();
+    expect(screen.queryByRole('button')).not.toBeInTheDocument();
+  });
+
+  it('Should render with the correct aria role', () => {
+    render(<AppIcon handleClick={() => {}} />);
+    expect(screen.getByRole('img')).toBeInTheDocument();
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
 });

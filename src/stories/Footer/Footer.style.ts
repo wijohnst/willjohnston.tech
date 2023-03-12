@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Footer = styled.footer`
+export const SemanticElement = styled.footer`
   display: grid;
   grid-template-columns: 1fr 2fr;
   min-height: 150px;
@@ -8,6 +8,10 @@ export const Footer = styled.footer`
   border-top: solid thin;
   border-color: var(--wjt-color-stroke-least-prominent);
   padding-top: 0.5em;
+  z-index: 99;
+  background-color: var(--wjt-color-most-prominent);
+  position: sticky;
+  bottom: 0;
 `;
 
 export const FooterInfoBox = styled.section`

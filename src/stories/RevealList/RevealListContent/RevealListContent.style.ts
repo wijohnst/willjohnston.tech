@@ -1,0 +1,106 @@
+import { ColorValuesLightTheme } from '@/types/app.types';
+import styled from 'styled-components';
+import { Breakpoints } from '@/types/app.types';
+
+export const SemanticElement = styled.section`
+  .highlight-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--wjt-color-accent);
+
+    @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
+      font-size: 1.5rem;
+    }
+  }
+
+  .icon-wrapper {
+    width: 75px;
+    margin: 0.5rem 0.25rem 0.5rem 0.25rem;
+    @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
+      width: 50px;
+      margin: 0.5rem 0.05rem 0.5rem 0.05rem;
+    }
+  }
+`;
+
+export const WebDevHeadingContentContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  right: -75%;
+  width: 100%;
+
+  h1 {
+    color: var(--wjt-color-least-prominent);
+  }
+
+  .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const BodyContentContainer = styled.div`
+  font-size: 2.5rem;
+  color: var(--wjt-color-least-prominent);
+  position: relative;
+  right: -50%;
+  width: 50%;
+
+  @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
+    font-size: 1.5rem;
+  }
+`;
+
+export const MentorshipHeadingContentContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  right: -75%;
+  width: 100%;
+
+  h1 {
+    color: var(--wjt-color-least-prominent);
+  }
+
+  .blocks {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 25px 0 0 0;
+  }
+
+  .block-column {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const BuildingBlock = styled.div<{
+  isFilled?: boolean;
+}>`
+  border: ${`dashed ${ColorValuesLightTheme['color-least-prominent']}`};
+  height: 50px;
+  width: 50px;
+
+  @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
+    height: 30px;
+    width: 30px;
+  }
+  border-radius: 10px;
+
+  background-color: ${({ isFilled }) => (isFilled ? '#434343' : 'none')};
+
+  margin: 1px;
+`;
+
+export const MentorshipBodyContentContainer = styled.div``;

@@ -19,4 +19,5 @@ const Template: StoryFn<typeof RevealList> = (args) => <RevealList {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   activeHeading: undefined,
+	handleHeadingChange: (activeHeading) => console.log(activeHeading),
 };

@@ -11,6 +11,10 @@ export const Nav = styled.nav`
 
   border-bottom: solid thin;
   border-color: var(--wjt-color-stroke-least-prominent);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: var(--wjt-color-most-prominent);
 `;
 
 export const IconWrapper = styled.div`
