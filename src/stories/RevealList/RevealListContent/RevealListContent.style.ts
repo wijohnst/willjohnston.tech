@@ -16,25 +16,11 @@ export const SemanticElement = styled.section`
   .icon-wrapper {
     width: 75px;
     margin: 0.5rem 0.25rem 0.5rem 0.25rem;
+
     @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
       width: 50px;
       margin: 0.5rem 0.05rem 0.5rem 0.05rem;
     }
-  }
-`;
-
-export const WebDevHeadingContentContainer = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-  right: -75%;
-  width: 100%;
-
-  h1 {
-    color: var(--wjt-color-least-prominent);
   }
 
   .icons {
@@ -44,12 +30,17 @@ export const WebDevHeadingContentContainer = styled.div`
   }
 `;
 
+export const WebDevHeadingContentContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+`;
+
 export const BodyContentContainer = styled.div`
   font-size: 2.5rem;
   color: var(--wjt-color-least-prominent);
-  position: relative;
-  right: -50%;
-  width: 50%;
 
   @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
     font-size: 1.5rem;
@@ -61,14 +52,6 @@ export const MentorshipHeadingContentContainer = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-
-  position: relative;
-  right: -75%;
-  width: 100%;
-
-  h1 {
-    color: var(--wjt-color-least-prominent);
-  }
 
   .blocks {
     display: flex;
@@ -104,3 +87,11 @@ export const BuildingBlock = styled.div<{
 `;
 
 export const MentorshipBodyContentContainer = styled.div``;
+
+export const ConsultingHeadingContentContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+`;
+export const ConsultingBodyContentContainer = styled.div``;
