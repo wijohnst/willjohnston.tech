@@ -6,6 +6,7 @@ export enum Breakpoints {
   tablet = '(max-width: 834px)',
   tablet_small = '(max-width: 768px)',
   mobile = '(max-width: 430px)',
+  mobile_small = '(max-width: 390px)',
 }
 
 /** Prominence based colors for a light theme */

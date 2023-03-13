@@ -41,7 +41,11 @@ export const defaultRevealListContent: RevealListContent = [
   {
     heading: 'consulting',
     underlayContent: <span>CONSULTING CONTENT</span>,
-    headingContent: <span>!!!</span>,
+    headingContent: (
+      <RevealListContent>
+        <RevealListContent.ConsultingHeadingContent />
+      </RevealListContent>
+    ),
   },
   {
     heading: 'freelance',

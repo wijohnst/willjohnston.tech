@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import {
+  RevealListItemContainer,
   SemanticElement,
-  RevealSection,
 } from '@/stories/RevealList/RevealList.style';
 import {
   defaultRevealListContent,
@@ -33,18 +33,19 @@ const RevealList = ({
       revealListSectionRefs.current[index] ?? React.createRef(),
   );
 
-  const handleReveal: IntersectionObserverCallback = (entries) => {
-    const [entry] = entries;
-    handleHeadingChange(entry.target.getAttribute('data-value') ?? 'webdev');
-  };
-
-  const intersectionObserverOptions = {
-    root: revealListRef.current,
-    rootMargin: '-10px 0px -10px 0px',
-    threshold: 1,
-  };
-
   React.useEffect(() => {
+    const handleReveal: IntersectionObserverCallback = (entries) => {
+      console.log(activeHeading);
+      const [entry] = entries;
+      handleHeadingChange(entry.target.getAttribute('data-value') ?? 'webdev');
+    };
+
+    const intersectionObserverOptions = {
+      // root: null,
+      root: revealListRef.current,
+      // rootMargin: '0px 0px -30px 0px',
+      threshold: 1,
+    };
     // IntersectionObserver callback function
     const observer = new IntersectionObserver(
       handleReveal,
@@ -57,41 +58,34 @@ const RevealList = ({
       );
     }
     return () => {
-      if (revealListSectionRefs.current) {
-        revealListContent.forEach((_revealListItem, index) =>
-          //@ts-ignore
-          observer.unobserve(revealListSectionRefs.current[index].current),
-        );
-      }
+      observer.disconnect();
     };
-  }, []);
+  }, [revealListContent, activeHeading, handleHeadingChange]);
 
   return (
     <SemanticElement data-testid="reveal-list" ref={revealListRef}>
       {revealListContent.map(
         (
-          { heading, headingContent, underlayContent }: RevealListItem,
+          { heading, underlayContent, headingContent }: RevealListItem,
           index: number,
         ) => {
           const isActive = heading === activeHeading;
           return (
-            <RevealSection
-              key={heading}
-              // isActive={isActive || activatedHeadings.includes(heading)}
-              isActive={isActive}
-              //@ts-expect-error - typing of ref
+            <RevealListItemContainer
+              key={`reveal-list-item-${heading}`}
+              isActive={activatedHeadings.includes(heading) || isActive}
+              //@ts-ignore
               ref={revealListSectionRefs.current[index]}
               data-value={heading}
             >
-              <div className="overlay">
-                {isActive || activatedHeadings.includes(heading) ? (
-                  headingContent
-                ) : (
-                  <h1>{heading}</h1>
-                )}
+              <div className="foreground">
+                <h1>{heading}</h1>
               </div>
-              <div className="underlay">{underlayContent}</div>
-            </RevealSection>
+              <div className="background">
+                <div className="background-left">{headingContent}</div>
+                <div className="background-right">{underlayContent}</div>
+              </div>
+            </RevealListItemContainer>
           );
         },
       )}

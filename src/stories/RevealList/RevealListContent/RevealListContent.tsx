@@ -3,6 +3,7 @@ import * as React from 'react';
 import {
   BodyContentContainer,
   BuildingBlock,
+  ConsultingHeadingContentContainer,
   MentorshipHeadingContentContainer,
   SemanticElement,
   WebDevHeadingContentContainer,
@@ -15,6 +16,10 @@ import FigmaIcon from '@@/public/Icons/figma-icon.svg';
 import NodeIcon from '@@/public/Icons/node-icon.svg';
 import NextIcon from '@@/public/Icons/next-icon.svg';
 import ReduxIcon from '@@/public/Icons/redux-icon.svg';
+import CodeIcon from '@@/public/Icons/code-icon.svg';
+import EmpathyIcon from '@@/public/Icons/empathy-icon.svg';
+import DataIcon from '@@/public/Icons/data-icon.svg';
+import ExperienceIcon from '@@/public/Icons/experience-icon.svg';
 
 type RevealListContentProps = {
   children: React.ReactElement | React.ReactElement[];
@@ -29,7 +34,6 @@ const RevealListContent = ({
 const WebdevHeadingContent = (): React.ReactElement => {
   return (
     <WebDevHeadingContentContainer>
-      <h1>webdev</h1>
       <div className="icons">
         <div className="icon-wrapper">
           <AppIcon>
@@ -78,7 +82,6 @@ const WebdevBodyContent = (): React.ReactElement => {
 const MentorshipHeadingContent = (): React.ReactElement => {
   return (
     <MentorshipHeadingContentContainer>
-      <h1>mentorship</h1>
       <div className="blocks">
         <div className="block-column">
           <BuildingBlock isFilled />
@@ -119,6 +122,36 @@ const MentorshipBodyContent = (): React.ReactElement => {
   );
 };
 
+const ConsultingHeadingContent = (): React.ReactElement => {
+  return (
+    <ConsultingHeadingContentContainer>
+      <div className="icons">
+        <div className="icon-wrapper">
+          <AppIcon>
+            <CodeIcon />
+          </AppIcon>
+        </div>
+        <div className="icon-wrapper">
+          <AppIcon>
+            <EmpathyIcon />
+          </AppIcon>
+        </div>
+        <div className="icon-wrapper">
+          <AppIcon>
+            <DataIcon />
+          </AppIcon>
+        </div>
+        <div className="icon-wrapper">
+          <AppIcon>
+            <ExperienceIcon />
+          </AppIcon>
+        </div>
+      </div>
+    </ConsultingHeadingContentContainer>
+  );
+};
+
+RevealListContent.ConsultingHeadingContent = ConsultingHeadingContent;
 RevealListContent.MentorshipBodyContent = MentorshipBodyContent;
 RevealListContent.MentorshipHeadingContent = MentorshipHeadingContent;
 RevealListContent.WebdevHeadingContent = WebdevHeadingContent;
