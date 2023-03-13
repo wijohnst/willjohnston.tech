@@ -40,7 +40,11 @@ export const defaultRevealListContent: RevealListContent = [
   },
   {
     heading: 'consulting',
-    underlayContent: <span>CONSULTING CONTENT</span>,
+    underlayContent: (
+      <RevealListContent>
+        <RevealListContent.ConsultingBodyContent />
+      </RevealListContent>
+    ),
     headingContent: (
       <RevealListContent>
         <RevealListContent.ConsultingHeadingContent />

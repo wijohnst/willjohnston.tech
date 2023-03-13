@@ -1,8 +1,14 @@
 import * as React from 'react';
 
 import {
+  RevealListContextProvider,
+  RevealListContext,
+  RevealListDispatchContext,
+} from '@/stories/RevealList/RevealListContent/RevealListContext';
+import {
   BodyContentContainer,
   BuildingBlock,
+  ConsultingBodyContentContainer,
   ConsultingHeadingContentContainer,
   MentorshipHeadingContentContainer,
   SemanticElement,
@@ -20,6 +26,7 @@ import CodeIcon from '@@/public/Icons/code-icon.svg';
 import EmpathyIcon from '@@/public/Icons/empathy-icon.svg';
 import DataIcon from '@@/public/Icons/data-icon.svg';
 import ExperienceIcon from '@@/public/Icons/experience-icon.svg';
+import { ColorValuesThemeAgnostic } from '@/types/app.types';
 
 type RevealListContentProps = {
   children: React.ReactElement | React.ReactElement[];
@@ -123,25 +130,61 @@ const MentorshipBodyContent = (): React.ReactElement => {
 };
 
 const ConsultingHeadingContent = (): React.ReactElement => {
+  const { currentQuality } = React.useContext(RevealListContext);
+  const dispatch = React.useContext(RevealListDispatchContext);
+
+  const getStyle = (isActive: boolean) =>
+    isActive
+      ? {
+          backgroundColor: ColorValuesThemeAgnostic['color-accent'],
+          borderRadius: '10px',
+        }
+      : {};
+
   return (
     <ConsultingHeadingContentContainer>
       <div className="icons">
-        <div className="icon-wrapper">
-          <AppIcon>
-            <CodeIcon />
-          </AppIcon>
-        </div>
-        <div className="icon-wrapper">
+        <div
+          className="icon-wrapper"
+          style={getStyle(currentQuality === 'empathy')}
+          onClick={() =>
+            dispatch({
+              type: 'UPDATE_QUALITY',
+              payload: 'empathy',
+            })
+          }
+        >
           <AppIcon>
             <EmpathyIcon />
           </AppIcon>
         </div>
-        <div className="icon-wrapper">
+        <div
+          className="icon-wrapper"
+          style={getStyle(currentQuality === 'technology')}
+          onClick={() =>
+            dispatch({ type: 'UPDATE_QUALITY', payload: 'technology' })
+          }
+        >
+          <AppIcon>
+            <CodeIcon />
+          </AppIcon>
+        </div>
+        <div
+          className="icon-wrapper"
+          style={getStyle(currentQuality === 'data')}
+          onClick={() => dispatch({ type: 'UPDATE_QUALITY', payload: 'data' })}
+        >
           <AppIcon>
             <DataIcon />
           </AppIcon>
         </div>
-        <div className="icon-wrapper">
+        <div
+          className="icon-wrapper"
+          style={getStyle(currentQuality === 'experience')}
+          onClick={() =>
+            dispatch({ type: 'UPDATE_QUALITY', payload: 'experience' })
+          }
+        >
           <AppIcon>
             <ExperienceIcon />
           </AppIcon>
@@ -151,6 +194,18 @@ const ConsultingHeadingContent = (): React.ReactElement => {
   );
 };
 
+const ConsultingBodyContent = (): React.ReactElement => {
+  const { currentQuality } = React.useContext(RevealListContext);
+  const dispatch = React.useContext(RevealListDispatchContext);
+
+  return (
+    <ConsultingBodyContentContainer>
+      {currentQuality}
+    </ConsultingBodyContentContainer>
+  );
+};
+
+RevealListContent.ConsultingBodyContent = ConsultingBodyContent;
 RevealListContent.ConsultingHeadingContent = ConsultingHeadingContent;
 RevealListContent.MentorshipBodyContent = MentorshipBodyContent;
 RevealListContent.MentorshipHeadingContent = MentorshipHeadingContent;

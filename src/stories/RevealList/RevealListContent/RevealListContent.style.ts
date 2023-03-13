@@ -1,4 +1,7 @@
-import { ColorValuesLightTheme } from '@/types/app.types';
+import {
+  ColorValuesLightTheme,
+  ColorValuesThemeAgnostic,
+} from '@/types/app.types';
 import styled from 'styled-components';
 import { Breakpoints } from '@/types/app.types';
 
@@ -93,5 +96,10 @@ export const ConsultingHeadingContentContainer = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+`;
+
+export const IconWrapper = styled.div<{ isActive?: boolean }>`
+  background-color: ${({ isActive }) =>
+    isActive ? `${ColorValuesThemeAgnostic['color-accent']}` : 'inherit'};
 `;
 export const ConsultingBodyContentContainer = styled.div``;
