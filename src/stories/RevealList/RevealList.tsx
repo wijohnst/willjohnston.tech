@@ -9,6 +9,10 @@ import {
   RevealListContent,
   RevealListItem,
 } from '@/stories/RevealList/RevealList.utils';
+import {
+  RevealListContext,
+  RevealListContextProvider,
+} from './RevealListContent/RevealListContext';
 
 type Props = {
   /** What's in the RevealList? */
@@ -35,7 +39,6 @@ const RevealList = ({
 
   React.useEffect(() => {
     const handleReveal: IntersectionObserverCallback = (entries) => {
-      console.log(activeHeading);
       const [entry] = entries;
       handleHeadingChange(entry.target.getAttribute('data-value') ?? 'webdev');
     };
@@ -63,33 +66,35 @@ const RevealList = ({
   }, [revealListContent, activeHeading, handleHeadingChange]);
 
   return (
-    <SemanticElement data-testid="reveal-list" ref={revealListRef}>
-      {revealListContent.map(
-        (
-          { heading, underlayContent, headingContent }: RevealListItem,
-          index: number,
-        ) => {
-          const isActive = heading === activeHeading;
-          return (
-            <RevealListItemContainer
-              key={`reveal-list-item-${heading}`}
-              isActive={activatedHeadings.includes(heading) || isActive}
-              //@ts-ignore
-              ref={revealListSectionRefs.current[index]}
-              data-value={heading}
-            >
-              <div className="foreground">
-                <h1>{heading}</h1>
-              </div>
-              <div className="background">
-                <div className="background-left">{headingContent}</div>
-                <div className="background-right">{underlayContent}</div>
-              </div>
-            </RevealListItemContainer>
-          );
-        },
-      )}
-    </SemanticElement>
+    <RevealListContextProvider>
+      <SemanticElement data-testid="reveal-list" ref={revealListRef}>
+        {revealListContent.map(
+          (
+            { heading, underlayContent, headingContent }: RevealListItem,
+            index: number,
+          ) => {
+            const isActive = heading === activeHeading;
+            return (
+              <RevealListItemContainer
+                key={`reveal-list-item-${heading}`}
+                isActive={activatedHeadings.includes(heading) || isActive}
+                //@ts-ignore
+                ref={revealListSectionRefs.current[index]}
+                data-value={heading}
+              >
+                <div className="foreground">
+                  <h1>{heading}</h1>
+                </div>
+                <div className="background">
+                  <div className="background-left">{headingContent}</div>
+                  <div className="background-right">{underlayContent}</div>
+                </div>
+              </RevealListItemContainer>
+            );
+          },
+        )}
+      </SemanticElement>
+    </RevealListContextProvider>
   );
 };
 
