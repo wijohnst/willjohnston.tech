@@ -53,8 +53,16 @@ export const defaultRevealListContent: RevealListContent = [
   },
   {
     heading: 'freelance',
-    underlayContent: <span>FREELANCE CONTENT</span>,
-    headingContent: <span>!!!</span>,
+    underlayContent: (
+      <RevealListContent>
+        <RevealListContent.FreelanceBodyContent />
+      </RevealListContent>
+    ),
+    headingContent: (
+      <RevealListContent>
+        <RevealListContent.FreelanceHeadingContent />
+      </RevealListContent>
+    ),
   },
 ];
 

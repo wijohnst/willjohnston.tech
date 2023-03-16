@@ -102,4 +102,19 @@ export const IconWrapper = styled.div<{ isActive?: boolean }>`
   background-color: ${({ isActive }) =>
     isActive ? `${ColorValuesThemeAgnostic['color-accent']}` : 'inherit'};
 `;
-export const ConsultingBodyContentContainer = styled.div``;
+export const ConsultingBodyContentContainer = styled(BodyContentContainer)`
+  text-align: left;
+
+  .highlight-text {
+    text-decoration: underline;
+  }
+`;
+
+export const FreelanceBodyContentContainer = styled(BodyContentContainer)`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FreelanceHeadingContentContainer = styled.div``;

@@ -1,15 +1,17 @@
 import * as React from 'react';
 
 import {
-  RevealListContextProvider,
   RevealListContext,
   RevealListDispatchContext,
+  Quality,
 } from '@/stories/RevealList/RevealListContent/RevealListContext';
 import {
   BodyContentContainer,
   BuildingBlock,
   ConsultingBodyContentContainer,
   ConsultingHeadingContentContainer,
+  FreelanceBodyContentContainer,
+  FreelanceHeadingContentContainer,
   MentorshipHeadingContentContainer,
   SemanticElement,
   WebDevHeadingContentContainer,
@@ -141,51 +143,45 @@ const ConsultingHeadingContent = (): React.ReactElement => {
         }
       : {};
 
+  const updateCurrentQuality = (updatedQuality: Quality): void => {
+    dispatch({
+      type: 'UPDATE_QUALITY',
+      payload: updatedQuality,
+    });
+  };
+
   return (
     <ConsultingHeadingContentContainer>
       <div className="icons">
         <div
           className="icon-wrapper"
           style={getStyle(currentQuality === 'empathy')}
-          onClick={() =>
-            dispatch({
-              type: 'UPDATE_QUALITY',
-              payload: 'empathy',
-            })
-          }
         >
-          <AppIcon>
+          <AppIcon handleClick={() => updateCurrentQuality('empathy')}>
             <EmpathyIcon />
           </AppIcon>
         </div>
         <div
           className="icon-wrapper"
           style={getStyle(currentQuality === 'technology')}
-          onClick={() =>
-            dispatch({ type: 'UPDATE_QUALITY', payload: 'technology' })
-          }
         >
-          <AppIcon>
+          <AppIcon handleClick={() => updateCurrentQuality('technology')}>
             <CodeIcon />
           </AppIcon>
         </div>
         <div
           className="icon-wrapper"
           style={getStyle(currentQuality === 'data')}
-          onClick={() => dispatch({ type: 'UPDATE_QUALITY', payload: 'data' })}
         >
-          <AppIcon>
+          <AppIcon handleClick={() => updateCurrentQuality('data')}>
             <DataIcon />
           </AppIcon>
         </div>
         <div
           className="icon-wrapper"
           style={getStyle(currentQuality === 'experience')}
-          onClick={() =>
-            dispatch({ type: 'UPDATE_QUALITY', payload: 'experience' })
-          }
         >
-          <AppIcon>
+          <AppIcon handleClick={() => updateCurrentQuality('experience')}>
             <ExperienceIcon />
           </AppIcon>
         </div>
@@ -198,13 +194,55 @@ const ConsultingBodyContent = (): React.ReactElement => {
   const { currentQuality } = React.useContext(RevealListContext);
   const dispatch = React.useContext(RevealListDispatchContext);
 
+  React.useEffect(() => {
+    const getNextQuality = (quality: Quality): Quality => {
+      switch (quality) {
+        case 'empathy':
+          return 'technology';
+        case 'technology':
+          return 'data';
+        case 'data':
+          return 'experience';
+        case 'experience':
+          return 'empathy';
+        default:
+          return 'empathy';
+      }
+    };
+    const updateQualityTimer = setTimeout(() => {
+      dispatch({
+        type: 'UPDATE_QUALITY',
+        payload: getNextQuality(currentQuality),
+      });
+    }, 2800);
+    return () => clearTimeout(updateQualityTimer);
+  }, [currentQuality, dispatch]);
+
   return (
     <ConsultingBodyContentContainer>
-      {currentQuality}
+      Leveraging
+      <br />
+      <span className="highlight-text">{currentQuality}</span>
+      <br /> to empower teams of all sizes.
     </ConsultingBodyContentContainer>
   );
 };
 
+const FreelanceHeadingContent = (): React.ReactElement => {
+  return <FreelanceHeadingContentContainer></FreelanceHeadingContentContainer>;
+};
+
+const FreelanceBodyContent = (): React.ReactElement => {
+  return (
+    <FreelanceBodyContentContainer>
+      Offering service that{' '}
+      <span className="highlight-text">fits your schedule</span>.
+    </FreelanceBodyContentContainer>
+  );
+};
+
+RevealListContent.FreelanceBodyContent = FreelanceBodyContent;
+RevealListContent.FreelanceHeadingContent = FreelanceHeadingContent;
 RevealListContent.ConsultingBodyContent = ConsultingBodyContent;
 RevealListContent.ConsultingHeadingContent = ConsultingHeadingContent;
 RevealListContent.MentorshipBodyContent = MentorshipBodyContent;

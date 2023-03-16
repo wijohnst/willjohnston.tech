@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type Quality = 'empathy' | 'data' | 'experience' | 'technology';
+export type Quality = 'empathy' | 'data' | 'experience' | 'technology';
 type RevealListContext = {
   currentQuality: Quality;
 };

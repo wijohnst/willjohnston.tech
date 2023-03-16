@@ -30,3 +30,19 @@ export const MentorshipHeadingContent: StoryFn<typeof RevealListContent> = (
     <RevealListContent.MentorshipHeadingContent />
   </RevealListContent>
 );
+
+export const ConsultingHeadingContent: StoryFn<typeof RevealListContent> = (
+  args,
+) => (
+  <RevealListContent>
+    <RevealListContent.ConsultingHeadingContent />
+  </RevealListContent>
+);
+
+export const FreelanceHeadingContent: StoryFn<typeof RevealListContent> = (
+  args,
+) => (
+  <RevealListContent>
+    <RevealListContent.FreelanceHeadingContent />
+  </RevealListContent>
+);
