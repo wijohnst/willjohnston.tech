@@ -65,6 +65,11 @@ export const RevealListItemContainer = styled.div<{
       width: 100%;
       height: ${({ isActive }) => (isActive ? '0%' : '100%')};
       text-align: center;
+
+      h1 {
+        margin: inherit;
+        margin: 0 0 0.25rem 0;
+      }
     }
   }
 
@@ -72,6 +77,7 @@ export const RevealListItemContainer = styled.div<{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
     position: relative;
     top: 0;

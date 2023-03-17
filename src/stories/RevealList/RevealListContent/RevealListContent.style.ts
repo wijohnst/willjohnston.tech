@@ -33,14 +33,6 @@ export const SemanticElement = styled.section`
   }
 `;
 
-export const WebDevHeadingContentContainer = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-`;
-
 export const BodyContentContainer = styled.div`
   font-size: 2.5rem;
   color: var(--wjt-color-least-prominent);
@@ -48,6 +40,14 @@ export const BodyContentContainer = styled.div`
   @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
     font-size: 1.5rem;
   }
+`;
+
+export const WebDevHeadingContentContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 `;
 
 export const MentorshipHeadingContentContainer = styled.div`
@@ -96,6 +96,7 @@ export const ConsultingHeadingContentContainer = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 `;
 
 export const IconWrapper = styled.div<{ isActive?: boolean }>`
@@ -110,11 +111,18 @@ export const ConsultingBodyContentContainer = styled(BodyContentContainer)`
   }
 `;
 
-export const FreelanceBodyContentContainer = styled(BodyContentContainer)`
+export const FreelanceBodyContentContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 `;
 
-export const FreelanceHeadingContentContainer = styled.div``;
+export const FreelanceHeadingContentContainer = styled.div`
+  .calendar-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;

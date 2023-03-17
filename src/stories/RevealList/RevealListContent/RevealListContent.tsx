@@ -29,6 +29,7 @@ import EmpathyIcon from '@@/public/Icons/empathy-icon.svg';
 import DataIcon from '@@/public/Icons/data-icon.svg';
 import ExperienceIcon from '@@/public/Icons/experience-icon.svg';
 import { ColorValuesThemeAgnostic } from '@/types/app.types';
+import { Calendar } from './Calendar/Calendar';
 
 type RevealListContentProps = {
   children: React.ReactElement | React.ReactElement[];
@@ -219,25 +220,31 @@ const ConsultingBodyContent = (): React.ReactElement => {
   }, [currentQuality, dispatch]);
 
   return (
-    <ConsultingBodyContentContainer>
+    <BodyContentContainer>
       Leveraging
       <br />
       <span className="highlight-text">{currentQuality}</span>
       <br /> to empower teams of all sizes.
-    </ConsultingBodyContentContainer>
+    </BodyContentContainer>
   );
 };
 
 const FreelanceHeadingContent = (): React.ReactElement => {
-  return <FreelanceHeadingContentContainer></FreelanceHeadingContentContainer>;
+  return (
+    <FreelanceHeadingContentContainer>
+      <div className="calendar-wrapper">
+        <Calendar />
+      </div>
+    </FreelanceHeadingContentContainer>
+  );
 };
 
 const FreelanceBodyContent = (): React.ReactElement => {
   return (
-    <FreelanceBodyContentContainer>
-      Offering service that{' '}
+    <BodyContentContainer>
+      Offering on-demand service that{' '}
       <span className="highlight-text">fits your schedule</span>.
-    </FreelanceBodyContentContainer>
+    </BodyContentContainer>
   );
 };
 

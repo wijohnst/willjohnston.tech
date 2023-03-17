@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { FillColor } from '@/stories/RevealList/RevealListContent/Calendar/CalendarEntry/CalendarEntry';
 
 import {
+  Breakpoints,
   ColorValuesLightTheme,
   ColorValuesThemeAgnostic,
 } from '@/types/app.types';
@@ -49,8 +50,18 @@ export const SemanticElement = styled.div<{
   hasContent: boolean;
   transitionTime: number;
 }>`
-  height: 25px;
-  width: 25px;
+  height: 35px;
+  width: 35px;
+
+  @media ${Breakpoints.tablet} {
+    height: 30px;
+    width: 30px;
+  }
+
+  @media ${Breakpoints.mobile} {
+    height: 25px;
+    width: 25px;
+  }
 
   background-color: ${({ shouldTransform, fillColor, hasContent }) =>
     getFillColor(shouldTransform, fillColor, hasContent)};
@@ -68,4 +79,8 @@ export const SemanticElement = styled.div<{
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+
+  .calendar-text {
+    font-size: 1rem;
+  }
 `;

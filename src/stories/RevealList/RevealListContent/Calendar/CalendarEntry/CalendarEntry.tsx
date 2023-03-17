@@ -20,7 +20,7 @@ const CalendarEntry = ({ calendarEntryConfig }: Props): React.ReactElement => {
   const {
     textContent = '',
     timeoutValue = 500,
-    transitionTime = 7,
+    transitionTime = 1,
     fillColor = 'color-accent-plus-2',
   } = calendarEntryConfig;
   const [shouldTransform, setShouldTransform] = React.useState(false);
@@ -31,8 +31,7 @@ const CalendarEntry = ({ calendarEntryConfig }: Props): React.ReactElement => {
     }, timeoutValue);
 
     return () => clearTimeout(transformTime);
-  }),
-    [];
+  }, [timeoutValue]);
 
   return (
     <SemanticElement
@@ -41,7 +40,7 @@ const CalendarEntry = ({ calendarEntryConfig }: Props): React.ReactElement => {
       hasContent={!!textContent}
       transitionTime={transitionTime}
     >
-      {textContent ?? ''}
+      <span className="calendar-text">{textContent ?? ''}</span>
     </SemanticElement>
   );
 };
