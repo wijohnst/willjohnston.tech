@@ -1,4 +1,7 @@
-import { ColorValuesLightTheme } from '@/types/app.types';
+import {
+  ColorValuesLightTheme,
+  ColorValuesThemeAgnostic,
+} from '@/types/app.types';
 import styled from 'styled-components';
 import { Breakpoints } from '@/types/app.types';
 
@@ -30,14 +33,6 @@ export const SemanticElement = styled.section`
   }
 `;
 
-export const WebDevHeadingContentContainer = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-`;
-
 export const BodyContentContainer = styled.div`
   font-size: 2.5rem;
   color: var(--wjt-color-least-prominent);
@@ -45,6 +40,14 @@ export const BodyContentContainer = styled.div`
   @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
     font-size: 1.5rem;
   }
+`;
+
+export const WebDevHeadingContentContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 `;
 
 export const MentorshipHeadingContentContainer = styled.div`
@@ -93,5 +96,33 @@ export const ConsultingHeadingContentContainer = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 `;
-export const ConsultingBodyContentContainer = styled.div``;
+
+export const IconWrapper = styled.div<{ isActive?: boolean }>`
+  background-color: ${({ isActive }) =>
+    isActive ? `${ColorValuesThemeAgnostic['color-accent']}` : 'inherit'};
+`;
+export const ConsultingBodyContentContainer = styled(BodyContentContainer)`
+  text-align: left;
+
+  .highlight-text {
+    text-decoration: underline;
+  }
+`;
+
+export const FreelanceBodyContentContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FreelanceHeadingContentContainer = styled.div`
+  .calendar-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
