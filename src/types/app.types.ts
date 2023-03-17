@@ -19,4 +19,7 @@ export enum ColorValuesLightTheme {
 /** Prominence based colors that are consistent regardless of theme */
 export enum ColorValuesThemeAgnostic {
   'color-accent' = '#737445',
+  'color-accent-plus-2' = '#8B8C54',
+  'color-least-prominent-light' = '#434343',
+  'color-accent-brown-gray' = '#CCC3B6',
 }
