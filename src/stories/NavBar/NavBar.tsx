@@ -6,47 +6,40 @@ import { Nav, IconWrapper } from './NavBar.style';
 import CodeIcon from '../../../public/Icons/code-icon.svg';
 import { NavButton } from '@/stories/NavButton/NavButton';
 
-import { Breakpoints } from '@/types/app.types';
-import { useMediaQuery } from '@/hooks/index';
-
 type Props = {};
 
 const NavBar = ({}: Props): React.ReactElement => {
   const router = useRouter();
-  const isMobile = useMediaQuery(Breakpoints.mobile);
 
   return (
     <Nav>
-      {!isMobile && (
-        <>
-          <NavButton
-            pathname="About"
-            buttonText="about"
-            isActive={router.pathname === '/About'}
-          />
-          <NavButton
-            pathname="Portfolio"
-            buttonText="portfolio"
-            isActive={router.pathname === '/Portfolio'}
-          />
-          <IconWrapper>
-            <AppIcon handleClick={() => router.push('/')}>
-              <CodeIcon />
-            </AppIcon>
-          </IconWrapper>
-          <NavButton
-            pathname="Services"
-            buttonText="services"
-            isActive={router.pathname === '/Services'}
-          />
-          <NavButton
-            pathname="Blog"
-            buttonText="blog"
-            isActive={router.pathname === '/Blog'}
-          />
-        </>
-      )}
-      {isMobile && <span>ADD MOBILE NAV</span>}
+      <>
+        <NavButton
+          pathname="About"
+          buttonText="about"
+          isActive={router.pathname === '/About'}
+        />
+        <NavButton
+          pathname="Portfolio"
+          buttonText="portfolio"
+          isActive={router.pathname === '/Portfolio'}
+        />
+        <IconWrapper>
+          <AppIcon handleClick={() => router.push('/')}>
+            <CodeIcon />
+          </AppIcon>
+        </IconWrapper>
+        <NavButton
+          pathname="Services"
+          buttonText="services"
+          isActive={router.pathname === '/Services'}
+        />
+        <NavButton
+          pathname="Blog"
+          buttonText="blog"
+          isActive={router.pathname === '/Blog'}
+        />
+      </>
     </Nav>
   );
 };

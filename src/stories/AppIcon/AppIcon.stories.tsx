@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Image from 'next/image';
+import { Meta, StoryFn } from '@storybook/react';
 
-import { AppIcon } from './AppIcon';
-import CodeIcon from '../../../public/Icons/code-icon.svg';
+import { AppIcon } from '@/stories/AppIcon/AppIcon';
+import CodeIcon from '@@/public/Icons/code-icon.svg';
 
 export default {
   title: 'Shared/AppIcon',
@@ -15,13 +14,13 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof AppIcon>;
+} as Meta<typeof AppIcon>;
 
-export const Default: ComponentStory<typeof AppIcon> = (args) => (
+export const Default: StoryFn<typeof AppIcon> = (args) => (
   <AppIcon {...args}></AppIcon>
 );
 
-export const CustomIcon: ComponentStory<typeof AppIcon> = (args) => (
+export const CustomIcon: StoryFn<typeof AppIcon> = (args) => (
   <AppIcon {...args}>
     <CodeIcon role="image" alt="WillJohnston.tech Logo" />
   </AppIcon>

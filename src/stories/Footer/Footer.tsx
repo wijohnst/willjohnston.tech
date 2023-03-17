@@ -2,7 +2,7 @@ import * as React from 'react';
 import { AppIcon } from '../AppIcon/AppIcon';
 
 import {
-  Footer as AppFooter,
+  SemanticElement,
   FooterInfoBox,
   FooterNav,
   FooterNavItem,
@@ -13,7 +13,7 @@ import { NavButton } from '../NavButton/NavButton';
 
 const Footer = (): React.ReactElement => {
   return (
-    <AppFooter>
+    <SemanticElement>
       <FooterInfoBox>
         <div className="icon-wrapper">
           <AppIcon>
@@ -47,7 +47,7 @@ const Footer = (): React.ReactElement => {
           <h6>FOLLOW</h6>
         </FooterNavItem>
       </FooterNav>
-    </AppFooter>
+    </SemanticElement>
   );
 };
 

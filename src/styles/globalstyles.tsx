@@ -1,4 +1,12 @@
-html, body, div, span, applet, object, iframe,
+import {
+  Breakpoints,
+  ColorValuesLightTheme,
+  ColorValuesThemeAgnostic,
+} from '@/types/app.types';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+	html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -44,12 +52,11 @@ table {
 	border-spacing: 0;
 }
 
-
 :root, html, body {
-	--wjt-color-least-prominent: #434343;
-	--wjt-color-most-prominent: #FFF4E3; 
-	--wjt-color-accent: #737445;
-	--wjt-color-stroke-least-prominent: #1E1E1E;
+	--wjt-color-least-prominent: ${ColorValuesLightTheme['color-least-prominent']};
+	--wjt-color-most-prominent: ${ColorValuesLightTheme['color-most-prominent']}; 
+	--wjt-color-accent: ${ColorValuesThemeAgnostic['color-accent']};
+	--wjt-color-stroke-least-prominent: ${ColorValuesLightTheme['stroke-least-prominent']};
 
 	background-color: var(--wjt-color-most-prominent);
 	color: var(--wjt-color-stroke-least-prominent);
@@ -62,9 +69,15 @@ table {
 	font-family: var(--wjt-typography-body), sans-serif;
 	font-weight: 400;
 	font-size: 18pt;
+
+	box-sizing: border-box;
 }
 
-main{}
+:root, html, body, body > main:first-child,
+div#__next,
+div#__next > div {
+	height: 100%;
+}
 
 footer {
 	position: absolute;
@@ -75,6 +88,7 @@ footer {
 h1,h6{
 	font-family: var(--wjt-typography-display);
 	font-weight: var(--wjt-typography-font-weight-xbold);
+	text-transform: uppercase;
 }
 
 h1{
@@ -84,4 +98,6 @@ h1{
 h6{
 	font-size: .75rem;
 }
+`;
 
+export default GlobalStyle;

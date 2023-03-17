@@ -20,7 +20,7 @@ const AppIcon = ({ children, handleClick }: Props): React.ReactElement => {
       {children ? (
         children
       ) : (
-        <MissingIcon role="image" alt="Question mark i con" />
+        <MissingIcon role="img" alt="Question mark icon" />
       )}
     </Element>
   );
