@@ -9,10 +9,7 @@ import {
   RevealListContent,
   RevealListItem,
 } from '@/stories/RevealList/RevealList.utils';
-import {
-  RevealListContext,
-  RevealListContextProvider,
-} from './RevealListContent/RevealListContext';
+import { RevealListContextProvider } from './RevealListContent/RevealListContext';
 
 type Props = {
   /** What's in the RevealList? */
