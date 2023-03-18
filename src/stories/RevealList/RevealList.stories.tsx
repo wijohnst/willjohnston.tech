@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { RevealList } from '@/stories/RevealList/RevealList';
+import { defaultRevealListContent } from './RevealList.utils';
 
 export default {
   title: 'Shared/RevealList',
@@ -19,5 +20,7 @@ const Template: StoryFn<typeof RevealList> = (args) => <RevealList {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   activeHeading: undefined,
-	handleHeadingChange: (activeHeading) => console.log(activeHeading),
+  handleHeadingChange: (activeHeading) => console.log(activeHeading),
+  revealListContent: defaultRevealListContent,
+  activatedHeadings: [],
 };
