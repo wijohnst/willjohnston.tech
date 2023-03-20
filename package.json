@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run bloglist &&  next build",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
@@ -12,7 +12,8 @@
     "test:watch": "jest --watch",
     "test:run": "jest",
     "prettier:check": "prettier --check --ignore-path .gitignore .",
-    "prettier:fix": "prettier --write --ignore-path .gitignore ."
+    "prettier:fix": "prettier --write --ignore-path .gitignore .",
+    "bloglist": "node ./scripts/generate-blog-list.mjs"
   },
   "dependencies": {
     "@next/font": "13.1.5",
@@ -25,6 +26,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "framer-motion": "^10.0.2",
+    "gray-matter": "^4.0.3",
     "next": "13.1.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
