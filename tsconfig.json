@@ -26,6 +26,6 @@
     "**/*.tsx",
     "jest.config.js",
     "jest.setup.js"
-  ],
+, "scripts/generate-blog-list.mjs"  ],
   "exclude": ["node_modules"]
 }
