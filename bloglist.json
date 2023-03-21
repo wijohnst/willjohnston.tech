@@ -1,10 +1,13 @@
 [
   {
-    "title": "TestPost",
-    "slug": "/testpost",
-    "createDate": "03/20/2023",
-    "summary": "A sample test post for WillJohnston.tech",
-    "heroImageURL": "https://picsum.photos/200/300",
-    "isFeatured": true
+    "data": {
+      "title": "TestPost",
+      "slug": "/test-post",
+      "createDate": "03/20/2023",
+      "summary": "A sample test post for WillJohnston.tech",
+      "heroImageURL": "https://picsum.photos/200/300",
+      "isFeatured": true
+    },
+    "content": "\n# Test Post\n"
   }
 ]
