@@ -35,7 +35,7 @@ const NavBar = ({}: Props): React.ReactElement => {
           isActive={router.pathname === '/Services'}
         />
         <NavButton
-          pathname="Blog"
+          pathname="blog/Blog"
           buttonText="blog"
           isActive={router.pathname === '/Blog'}
         />
