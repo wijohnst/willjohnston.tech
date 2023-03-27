@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Condensed&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400&display=swap"
             rel="stylesheet"
           />
           <meta name="description" content="Full Stack Web Development" />
@@ -52,12 +52,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-			// <Html lang="en">
-			// 	<body>
-			// 		<Main />
-			// 		<NextScript />
-			// 	</body>
-			// </Html>
     );
   }
 }
