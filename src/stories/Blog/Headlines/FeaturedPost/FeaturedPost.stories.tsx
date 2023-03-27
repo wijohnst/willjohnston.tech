@@ -19,7 +19,7 @@ const Template: StoryFn<typeof FeaturedPost> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   featuredPostMetaData: {
-    title: 'TestPost',
+    title: 'Making Remote Mentorship Work',
     createdDate: '03/21/2023',
     heroImageAlt: 'A friendly puppy',
     summary:

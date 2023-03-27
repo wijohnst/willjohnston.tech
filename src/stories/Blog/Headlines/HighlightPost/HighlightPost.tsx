@@ -3,17 +3,19 @@ import Image from 'next/image';
 
 import { useMediaQuery } from '@/hooks';
 import { Breakpoints } from '@/types/app.types';
-
-import { SemanticElement } from '@/stories/Blog/Headlines/FeaturedPost/FeaturedPost.style';
+import { SemanticElement } from '@/stories/Blog/Headlines/HighlightPost/HighlightPost.style';
 import { HeadlineMetaData, HeroImages } from '@/stories/Blog/Blog.types';
 
 type Props = {
-  featuredPostMetaData: HeadlineMetaData;
+  highlighPostMetaData: HeadlineMetaData;
   heroImages: HeroImages;
 };
 
-const FeaturedPost = ({ featuredPostMetaData, heroImages }: Props) => {
-  const { heroImageAlt, title, summary } = featuredPostMetaData;
+const HighlightPost = ({
+  highlighPostMetaData,
+  heroImages,
+}: Props): React.ReactElement => {
+  const { heroImageAlt, title } = highlighPostMetaData;
 
   const isMobile = useMediaQuery(Breakpoints.mobile);
 
@@ -22,15 +24,18 @@ const FeaturedPost = ({ featuredPostMetaData, heroImages }: Props) => {
       <Image
         alt={heroImageAlt}
         src={isMobile ? heroImages.mobile : heroImages.desktop}
-        quality={isMobile ? 50 : 75}
+        // quality={isMobile ? 50 : 75}
       />
       <div className="summary-content">
-        <h5>featured</h5>
-        <h4>{title}</h4>
-        <span>{summary}</span>
+        <div className="highlight-header">
+          <h6>popular</h6>
+        </div>
+        <div className="title-container">
+          <h4>{title}</h4>
+        </div>
       </div>
     </SemanticElement>
   );
 };
 
-export default FeaturedPost;
+export { HighlightPost };
