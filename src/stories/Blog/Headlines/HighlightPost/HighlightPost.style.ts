@@ -87,6 +87,7 @@ export const SemanticElement = styled.div`
           font-size: 0.5rem;
           background-color: transparent;
           line-height: 1;
+          max-width: 90%;
         }
       }
     }

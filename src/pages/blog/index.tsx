@@ -1,9 +1,15 @@
-import * as React from 'react'
+import * as React from 'react';
+
+import { Headlines } from '@/stories/Blog/Headlines/Headlines';
 
 interface Props {}
 
 const Blog = ({}: Props) => {
-  return <span> Blog Works!</span>
-}
+  return (
+    <>
+      <Headlines />
+    </>
+  );
+};
 
-export default Blog
+export default Blog;

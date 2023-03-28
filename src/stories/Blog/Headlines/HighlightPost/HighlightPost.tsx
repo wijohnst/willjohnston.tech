@@ -24,7 +24,6 @@ const HighlightPost = ({
       <Image
         alt={heroImageAlt}
         src={isMobile ? heroImages.mobile : heroImages.desktop}
-        // quality={isMobile ? 50 : 75}
       />
       <div className="summary-content">
         <div className="highlight-header">
