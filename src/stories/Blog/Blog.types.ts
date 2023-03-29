@@ -1,13 +1,26 @@
+import matter from 'gray-matter';
 import { StaticImageData } from 'next/image';
 
-export type BlogPostMetaData = {
-  title: String;
-  slug: String;
-  createdDate: String;
-  summary: String;
-  heroImageURL: String;
+export type BlogFrontmatter = {
+  title: string;
+  slug: string;
+  createdDate: string;
+  summary: string;
+  featuredImage: {
+    desktop: string;
+    mobile: string;
+  };
+  highlightImage: {
+    desktop: string;
+    mobile: string;
+  };
+  heroImageAlt: string;
   isFeatured: boolean;
+  isHighlight: boolean;
 };
+
+export type BlogListMetaData = ReturnType<typeof matter>;
+export type BlogListMetaDataArray = BlogListMetaData[];
 
 export type BlogPostMetaContent = String;
 

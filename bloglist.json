@@ -1,13 +1,1 @@
-[
-  {
-    "data": {
-      "title": "TestPost",
-      "slug": "/test-post",
-      "createdDate": "03/20/2023",
-      "summary": "A sample test post for WillJohnston.tech",
-      "heroImageURL": "https://picsum.photos",
-      "isFeatured": true
-    },
-    "content": "\n# Test Post\n"
-  }
-]
+[{"data":{"title":"Featured Post","slug":"/featured-post","createdDate":"03/21/2023","summary":"A sample test post for WillJohnston.tech","featuredImage":{"desktop":"public/TestImages/Desktop.png","mobile":"public/TestImages/Mobile.png"},"highlightImage":{"desktop":"public/TestImages/Highlight-Desktop.png","mobile":"public/TestImages/Highlight-Mobile.png"},"heroImageAlt":"A sample image","isFeatured":true,"isHighlight":false},"content":"\n# Featured Post\n"},{"data":{"title":"Highlight Post One","slug":"/highlight-post-one","createdDate":"03/20/2023","summary":"A sample test post for WillJohnston.tech","featuredImage":{"desktop":"public/TestImages/Desktop.png","mobile":"public/TestImages/Mobile.png"},"highlightImage":{"desktop":"public/TestImages/Highlight-Desktop.png","mobile":"public/TestImages/Highlight-Mobile.png"},"heroImageAlt":"A sample image","isFeatured":false,"isHighlight":true},"content":"\n# Highlight Post 1\n"},{"data":{"title":"Highlight Post Three","slug":"/highlight-post-three","createdDate":"03/20/2023","summary":"A sample test post for WillJohnston.tech","featuredImage":{"desktop":"public/TestImages/Desktop.png","mobile":"public/TestImages/Mobile.png"},"highlightImage":{"desktop":"public/TestImages/Highlight-Desktop.png","mobile":"public/TestImages/Highlight-Mobile.png"},"heroImageAlt":"A sample image","isFeatured":false,"isHighlight":true},"content":"\n# Highlight Post 3 \n"},{"data":{"title":"Highlight Post Two","slug":"/highlight-post-two","createdDate":"03/20/2023","summary":"A sample test post for WillJohnston.tech","featuredImage":{"desktop":"public/TestImages/Desktop.png","mobile":"public/TestImages/Mobile.png"},"highlightImage":{"desktop":"public/TestImages/Highlight-Desktop.png","mobile":"public/TestImages/Highlight-Mobile.png"},"heroImageAlt":"A sample image","isFeatured":false,"isHighlight":true},"content":"\n# Highlight Post 2\n"}]
