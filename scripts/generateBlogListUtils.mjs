@@ -1,33 +1,39 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 
-export const defaultBlogFrontmatter = {
+export const defaultBlogFrontmatterAsJsObject = {
   title: 'TestPost',
   slug: '/test-post',
   createdDate: '03/20/2023',
   summary: 'A sample test post for WillJohnston.tech',
-  featuredImage: {
-    desktop: 'public/TestImages/Desktop.png',
-    mobile: 'public/TestImages/Mobile.png',
-  },
-  highlightImage: {
-    desktop: 'public/TestImages/Highlight-Desktop.png',
-    mobile: 'public/TestImages/Highlight-Mobile.png',
-  },
-  heroImageAlt: 'A sample image',
+  featureImageDesktop: 'public/TestImages/Desktop.png',
+  featuredImageMobile: 'public/TestImages/Mobile.png',
+  highlightImageDesktop: 'public/TestImages/Highlight-Desktop.png',
+  highlightImageMobile: 'public/TestImages/Highlight-Mobile.png',
+  highlightImageAlt: 'A sample image',
   isFeatured: false,
   isHighlight: false,
 };
 
-export const frontmatterKeys = Object.keys(defaultBlogFrontmatter);
+export const frontmatterKeys = Object.keys(defaultBlogFrontmatterAsJsObject);
 
+/**
+ * Returns an array of blog post meta data objects
+ *
+ * @param {string} dirToTarget The directory containing blog posts
+ * @returns { { data: { [key: keyof defaultBlogFrontmatterAsJsObject ]: string | boolean }, content: string }[] }
+ */
 export const getBlogListMetaDataArray = (dirToTarget) => {
   const targetDir = dirToTarget ?? './src/pages/blog';
-  const fileNames = fs.readdirSync(targetDir);
-  const fileNamesToIgnore = ['index.tsx'];
+  const fileNames = fs?.readdirSync(targetDir);
+  const fileNamesToIgnore = ['index.tsx', '.DS_Store'];
+
   return fileNames.reduce((blogListMetaData, fileName) => {
     if (!fileNamesToIgnore.includes(fileName)) {
-      const fileContents = fs.readFileSync(`${targetDir}/${fileName}`, 'utf-8');
+      const fileContents = fs?.readFileSync(
+        `${targetDir}/${fileName}`,
+        'utf-8',
+      );
       const { data, content } = matter(fileContents);
       return [...blogListMetaData, { data, content }];
     }

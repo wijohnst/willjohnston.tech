@@ -3,6 +3,7 @@ import {
   getBlogListMetaDataArray,
   isBlogListMetaDataValid,
   defaultBlogFrontmatter,
+  defaultBlogFrontmatterAsJsObject,
 } from './generateBlogListUtils.mjs';
 import mock from 'mock-fs';
 import {
@@ -13,64 +14,59 @@ import {
 describe('generate-blog-list unit tests', () => {
   beforeEach(() => {
     const absolutePath = process.cwd();
+
+    // Creates a mock file system
     mock({
       [`${absolutePath}/src/pages/blog`]: {
-        ['someComponent.tsx']: generateMockBlogFile('1234'),
+        ['someComponent.tsx']: generateMockBlogFile('1234', {}),
       },
       [`${absolutePath}/src/pages/testDir`]: {
         ['someComponent.tsx']: generateMockBlogFile('5678', {
-          ...defaultBlogFrontmatter,
           isFeatured: true,
         }),
       },
       [`${absolutePath}/src/pages/multipleFeatured`]: {
         ['someComponent.tsx']: generateMockBlogFile('1234', {
-          ...defaultBlogFrontmatter,
           isFeatured: true,
         }),
         ['someOtherComponent.tsx']: generateMockBlogFile('5678', {
-          ...defaultBlogFrontmatter,
           isFeatured: true,
         }),
       },
       [`${absolutePath}/src/pages/noneFeatured`]: {
         ['someComponent.tsx']: generateMockBlogFile('1234', {
-          ...defaultBlogFrontmatter,
           isFeatured: false,
         }),
         ['someOtherComponent.tsx']: generateMockBlogFile('5678', {
-          ...defaultBlogFrontmatter,
           isFeatured: false,
         }),
       },
       [`${absolutePath}/src/pages/missingKey`]: {
         ['some-post.mdx']: generateMockBlogFileMinusKey('isHighlight', 'ABCD', {
-          ...defaultBlogFrontmatter,
           title: 'Test Post 3',
           isFeatured: true,
         }),
       },
       [`${absolutePath}/src/pages/isFeaturedAndIsHighlight`]: {
         ['some-post.mdx']: generateMockBlogFile('EFGH', {
-          ...defaultBlogFrontmatter,
           isFeatured: true,
           isHighlight: true,
         }),
       },
     });
   });
+
   afterEach(() => mock.restore());
 
-  it('Should return a the correct meta data array', () => {
+  it('Should return a the correct meta data array when no params are supplied', () => {
     const result = getBlogListMetaDataArray();
     const control = [
       {
-        data: {
-          ...defaultBlogFrontmatter,
-        },
-        content: '1234',
+        data: defaultBlogFrontmatterAsJsObject,
+        content: '1234\n',
       },
     ];
+
     expect(result).toEqual(control);
   });
 
@@ -78,13 +74,11 @@ describe('generate-blog-list unit tests', () => {
     const result = getBlogListMetaDataArray('./src/pages/testDir');
     const control = [
       {
-        data: {
-          ...defaultBlogFrontmatter,
-          isFeatured: true,
-        },
-        content: '5678',
+        data: { ...defaultBlogFrontmatterAsJsObject, isFeatured: true },
+        content: '5678\n',
       },
     ];
+
     expect(result).toEqual(control);
   });
 
@@ -92,6 +86,7 @@ describe('generate-blog-list unit tests', () => {
     const blogListMetaDataArray = getBlogListMetaDataArray(
       './src/pages/multipleFeatured',
     );
+
     expect(function () {
       isBlogListMetaDataValid(blogListMetaDataArray);
     }).toThrow(failedTestOutput[0]);
@@ -101,6 +96,7 @@ describe('generate-blog-list unit tests', () => {
     const blogListMetaDataArray = getBlogListMetaDataArray(
       './src/pages/noneFeatured',
     );
+
     expect(function () {
       isBlogListMetaDataValid(blogListMetaDataArray);
     }).toThrow(failedTestOutput[1]);
@@ -110,6 +106,7 @@ describe('generate-blog-list unit tests', () => {
     const blogListMetaDataArray = getBlogListMetaDataArray(
       './src/pages/missingKey',
     );
+
     expect(function () {
       isBlogListMetaDataValid(blogListMetaDataArray);
     }).toThrow(failedTestOutput[2]);
@@ -119,6 +116,7 @@ describe('generate-blog-list unit tests', () => {
     const blogListMetaDataArray = getBlogListMetaDataArray(
       './src/pages/isFeaturedAndIsHighlight',
     );
+
     expect(function () {
       isBlogListMetaDataValid(blogListMetaDataArray);
     }).toThrow(failedTestOutput[3]);

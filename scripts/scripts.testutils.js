@@ -1,25 +1,12 @@
-import { defaultBlogFrontmatter } from './generateBlogListUtils.mjs';
+import matter from 'gray-matter';
 
-export const generateMockBlogFile = (
-  content,
-  frontMatter = { ...defaultBlogFrontmatter },
-) => {
-  const {
-    title,
-    slug,
-    createdDate,
-    summary,
-    featuredImage,
-    highlightImage,
-    heroImageAlt,
-    isFeatured,
-    isHighlight,
-  } = frontMatter;
-  return `---\ntitle: ${title}\nslug: ${slug}\ncreatedDate: ${createdDate}\nsummary: ${summary}\nfeaturedImage: ${JSON.stringify(
-    featuredImage,
-  )}\nhighlightImage: ${JSON.stringify(
-    highlightImage,
-  )}\nheroImageAlt: ${heroImageAlt}\nisFeatured: ${isFeatured}\nisHighlight: ${isHighlight}\n---${content}`;
+import {
+  defaultBlogFrontmatter,
+  defaultBlogFrontmatterAsJsObject,
+} from './generateBlogListUtils.mjs';
+
+export const generateMockBlogFile = (content, frontmatterToUpdate) => {
+  return generateFrontmatterString(content, frontmatterToUpdate);
 };
 
 export const generateMockBlogFileMinusKey = (
@@ -33,4 +20,13 @@ export const generateMockBlogFileMinusKey = (
   mockBlogFile = mockBlogFile.replace(match, '\n');
 
   return mockBlogFile;
+};
+
+export const generateFrontmatterString = (content, keysToUpdate) => {
+  const updatedValues = {
+    ...defaultBlogFrontmatterAsJsObject,
+    ...keysToUpdate,
+  };
+
+  return matter.stringify(content, updatedValues);
 };
