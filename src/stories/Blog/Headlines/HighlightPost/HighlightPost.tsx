@@ -4,16 +4,16 @@ import Image from 'next/image';
 import { useMediaQuery } from '@/hooks';
 import { Breakpoints } from '@/types/app.types';
 import { SemanticElement } from '@/stories/Blog/Headlines/HighlightPost/HighlightPost.style';
-import { HeadlineMetaData, HeroImages } from '@/stories/Blog/Blog.types';
+import { HeadlineMetaData, ImagePaths } from '@/stories/Blog/Blog.types';
 
 type Props = {
   highlighPostMetaData: HeadlineMetaData;
-  heroImages: HeroImages;
+  heroImagePaths: ImagePaths;
 };
 
 const HighlightPost = ({
   highlighPostMetaData,
-  heroImages,
+  heroImagePaths,
 }: Props): React.ReactElement => {
   const { heroImageAlt, title } = highlighPostMetaData;
 
@@ -23,7 +23,10 @@ const HighlightPost = ({
     <SemanticElement>
       <Image
         alt={heroImageAlt}
-        src={isMobile ? heroImages.mobile : heroImages.desktop}
+        src={isMobile ? heroImagePaths.mobile : heroImagePaths.desktop}
+        quality={isMobile ? 50 : 75}
+        height={isMobile ? 130 : 300}
+        width={isMobile ? 385 : 338}
       />
       <div className="summary-content">
         <div className="highlight-header">

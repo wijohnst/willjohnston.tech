@@ -5,24 +5,31 @@ import { useMediaQuery } from '@/hooks';
 import { Breakpoints } from '@/types/app.types';
 
 import { SemanticElement } from '@/stories/Blog/Headlines/FeaturedPost/FeaturedPost.style';
-import { HeadlineMetaData, HeroImages } from '@/stories/Blog/Blog.types';
+import { HeadlineMetaData, ImagePaths } from '@/stories/Blog/Blog.types';
 
 type Props = {
   featuredPostMetaData: HeadlineMetaData;
-  heroImages: HeroImages;
+  heroImagePaths: ImagePaths;
 };
 
-const FeaturedPost = ({ featuredPostMetaData, heroImages }: Props) => {
+const FeaturedPost = ({ featuredPostMetaData, heroImagePaths }: Props) => {
   const { heroImageAlt, title, summary } = featuredPostMetaData;
 
   const isMobile = useMediaQuery(Breakpoints.mobile);
+  React.useEffect(() => {
+    console.log(isMobile);
+  }, [isMobile]);
 
   return (
     <SemanticElement>
       <Image
         alt={heroImageAlt}
-        src={isMobile ? heroImages.mobile : heroImages.desktop}
+        src={
+          isMobile ? `/${heroImagePaths.mobile}` : `/${heroImagePaths.desktop}`
+        }
         quality={isMobile ? 50 : 75}
+        height={isMobile ? 130 : 454}
+        width={isMobile ? 131 : 680}
       />
       <div className="summary-content">
         <h5>featured</h5>
