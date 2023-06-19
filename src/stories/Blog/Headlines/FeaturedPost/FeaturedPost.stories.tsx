@@ -2,10 +2,8 @@ import * as React from 'react';
 
 import { StoryFn, Meta } from '@storybook/react';
 
-import Desktop from '@@/public/TestImages/Desktop.png';
-import Mobile from '@@/public/TestImages/Mobile.png';
-
 import FeaturedPost from '@/stories/Blog/Headlines/FeaturedPost/FeaturedPost';
+
 export default {
   title: 'Blog/FeaturedPost',
   component: FeaturedPost,
@@ -28,5 +26,6 @@ Default.args = {
   heroImagePaths: {
     mobile: '/TestImages/Mobile.png',
     desktop: '/TestImages/Desktop.png',
+    tablet: '/TestImages/Tablet.png',
   },
 };

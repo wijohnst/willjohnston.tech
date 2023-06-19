@@ -6,16 +6,12 @@ export const SemanticElement = styled.div`
   flex-flow: row nowrap;
   background-color: ${ColorValuesLightTheme['color-least-prominent']};
   color: ${ColorValuesLightTheme['color-most-prominent']};
-  max-width: 675px;
 
   @media ${Breakpoints.tablet} {
-    max-width: 331px;
     position: relative;
   }
 
   @media ${Breakpoints.mobile} {
-    max-width: 378px;
-
     img {
       padding: 0.25rem;
     }
@@ -71,7 +67,7 @@ export const SemanticElement = styled.div`
       }
     }
 
-    @media ${Breakpoints.mobile} {
+    @media ${(Breakpoints.mobile, Breakpoints.mobile_small)} {
       position: inherit;
       .highlight-header {
         h6 {

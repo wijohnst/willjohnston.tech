@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const SemanticElement = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: ${ColorValuesLightTheme['color-least-prominent']};
   color: ${ColorValuesLightTheme['color-most-prominent']};

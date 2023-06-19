@@ -2,10 +2,10 @@ export type IconSize = 'lg' | 'md' | 'sm' | 'xs';
 
 export enum Breakpoints {
   desktop = '(min-width: 1440px)',
-  laptop = '(max-width: 1417px)',
-  tablet = '(max-width: 834px)',
-  tablet_small = '(max-width: 768px)',
-  mobile = '(max-width: 430px)',
+  laptop = '(max-width: 1439px) and (min-width: 912px)',
+  tablet = '(max-width: 911px) and (min-width: 768px)',
+  tablet_small = '(max-width: 767px) and (min-width: 431px)',
+  mobile = '(max-width: 430px) and (min-width: 391px)',
   mobile_small = '(max-width: 390px)',
 }
 

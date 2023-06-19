@@ -5,6 +5,7 @@ import { useMediaQuery } from '@/hooks';
 import { Breakpoints } from '@/types/app.types';
 import { SemanticElement } from '@/stories/Blog/Headlines/HighlightPost/HighlightPost.style';
 import { HeadlineMetaData, ImagePaths } from '@/stories/Blog/Blog.types';
+import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
 
 type Props = {
   highlighPostMetaData: HeadlineMetaData;
@@ -17,14 +18,14 @@ const HighlightPost = ({
 }: Props): React.ReactElement => {
   const { heroImageAlt, title } = highlighPostMetaData;
 
-  const isMobile = useMediaQuery(Breakpoints.mobile);
+  const match = useGetMediaQuery();
 
+  const isMobile = match === 'mobile' || match === 'mobile_small';
   return (
     <SemanticElement>
       <Image
         alt={heroImageAlt}
         src={isMobile ? heroImagePaths.mobile : heroImagePaths.desktop}
-        quality={isMobile ? 50 : 75}
         height={isMobile ? 130 : 300}
         width={isMobile ? 385 : 338}
       />

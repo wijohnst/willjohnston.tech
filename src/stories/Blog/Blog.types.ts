@@ -1,3 +1,4 @@
+import { Breakpoints } from '@/types/app.types';
 import matter from 'gray-matter';
 import { StaticImageData } from 'next/image';
 import { ReactElement } from 'react';
@@ -29,6 +30,43 @@ export type HeadlineMetaData = {
 };
 
 export type ImagePaths = {
-  mobile: string;
   desktop: string;
+  mobile: string;
+  tablet: string;
+};
+
+export type ImageSizeKey = keyof typeof Breakpoints;
+
+export type ImageDimensions = {
+  width: number;
+  height: number;
+};
+
+export type ImageDimensionMap = { [key in ImageSizeKey]: ImageDimensions };
+
+export const featuredPostImageDimensions: ImageDimensionMap = {
+  desktop: {
+    width: 680,
+    height: 454,
+  },
+  laptop: {
+    width: 680,
+    height: 454,
+  },
+  tablet: {
+    width: 475,
+    height: 525,
+  },
+  tablet_small: {
+    width: 475,
+    height: 525,
+  },
+  mobile: {
+    width: 385,
+    height: 130,
+  },
+  mobile_small: {
+    width: 385,
+    height: 130,
+  },
 };
