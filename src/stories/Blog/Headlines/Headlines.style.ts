@@ -1,19 +1,29 @@
+import { Breakpoints } from '@/types/app.types';
 import styled from 'styled-components';
 
 export const SemanticElement = styled.section<{
   isMobile: boolean;
 }>`
   margin: 0.25rem 0 0.25rem 0;
-  display: ${({ isMobile }) => (isMobile ? 'flex' : 'grid')};
-  flex-flow: column nowrap;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  overflow-x: ${({ isMobile }) => (isMobile ? 'scroll' : 'hidden')};
-  overflow-y: hidden;
-  max-height: ${({ isMobile }) => (isMobile ? '75vh' : '100%')};
-  max-width: ${({ isMobile }) => (isMobile ? '100%' : '75vw')};
   background-color: lightblue;
   padding: 0.25rem;
+  display: flex;
+  flex-flow: column nowrap;
+
+  @media ${Breakpoints.desktop} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    max-width: 75vw;
+  }
+
+  @media ${Breakpoints.laptop} {
+    max-width: 680px;
+  }
+
+  @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
+    max-width: 475px;
+  }
 
   .featured-post {
     display: ${({ isMobile }) => (isMobile ? 'block' : 'flex')};
@@ -24,8 +34,7 @@ export const SemanticElement = styled.section<{
   .highlight-posts {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    overflow-x: ${({ isMobile }) => (isMobile ? 'hidden' : 'scroll')};
+    /* overflow-x: ${({ isMobile }) => (isMobile ? 'hidden' : 'scroll')}; */
     height: 100%;
 
     .highlight-post-entry {
