@@ -9,9 +9,17 @@ export const SemanticElement = styled.div`
   background-color: ${ColorValuesLightTheme['color-least-prominent']};
   color: ${ColorValuesLightTheme['color-most-prominent']};
   overflow: hidden;
-  max-width: 680px;
+  margin: 0 0 0.25rem 0;
 
-  @media ${Breakpoints.tablet} {
+  @media ${Breakpoints.laptop} {
+    max-width: 680px;
+  }
+
+  @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
+    max-width: 475px;
+  }
+
+  @media ${(Breakpoints.mobile, Breakpoints.mobile_small)} {
     max-width: 475px;
   }
 

@@ -7,12 +7,11 @@ import GlobalStyle from '@/styles/globalstyles';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-		<>
-			<GlobalStyle />
-			<NavBar />
-			<Component {...pageProps} />
-			<Footer />
-		</>
+    <>
+      <GlobalStyle />
+      <NavBar />
+      <Component {...pageProps} />
+      <Footer />
+    </>
   );
 }
-

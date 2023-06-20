@@ -17,7 +17,6 @@ const SemanticElement = styled.section`
   background-color: lightpink;
   display: flex;
   justify-content: center;
-  max-height: 30rem;
 `;
 
 export default Blog;
