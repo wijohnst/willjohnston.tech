@@ -15,7 +15,7 @@ const Headlines = ({}: Props): React.ReactElement => {
 
   const matches = useGetMediaQuery();
   const isMobile = matches === 'mobile' || matches === 'mobile_small';
-
+  // TODO:
   return (
     <SemanticElement isMobile={isMobile}>
       <div className="featured-post">
