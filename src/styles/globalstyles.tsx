@@ -1,5 +1,4 @@
 import {
-  Breakpoints,
   ColorValuesLightTheme,
   ColorValuesThemeAgnostic,
 } from '@/types/app.types';
@@ -25,8 +24,6 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-
-	font-size: 12pt;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -67,7 +64,7 @@ table {
  --wjt-typography-font-weight-xbold: 800;
 
 	font-family: var(--wjt-typography-body), sans-serif;
-	font-weight: 400;
+	font-weight: 300;
 	font-size: 18pt;
 
 	box-sizing: border-box;
@@ -85,7 +82,7 @@ footer {
 	width: 100%;
 }
 
-h1,h6{
+h1,h2,h3,h4,h5,h6{
 	font-family: var(--wjt-typography-display);
 	font-weight: var(--wjt-typography-font-weight-xbold);
 	text-transform: uppercase;
@@ -93,6 +90,22 @@ h1,h6{
 
 h1{
 	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2.75rem;
+}
+
+h3{
+	font-size: 2.5rem;
+}
+
+h4{
+	font-size: 1.5rem;
+}
+
+h5{
+	font-size: 1rem;
 }
 
 h6{

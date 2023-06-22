@@ -1,9 +1,22 @@
-import * as React from 'react'
+import * as React from 'react';
+import styled from 'styled-components';
+
+import { Headlines } from '@/stories/Blog/Headlines/Headlines';
 
 interface Props {}
 
 const Blog = ({}: Props) => {
-  return <span> Blog Works!</span>
-}
+  return (
+    <SemanticElement>
+      <Headlines />
+    </SemanticElement>
+  );
+};
 
-export default Blog
+const SemanticElement = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export default Blog;
