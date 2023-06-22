@@ -93,7 +93,7 @@ export const highlightPostImageDimensions: ImageDimensionMap = {
     height: 274,
   },
   tablet_small: {
-    width: 318,
+    width: 420,
     height: 274,
   },
   mobile: {

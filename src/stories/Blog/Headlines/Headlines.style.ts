@@ -10,6 +10,7 @@ export const SemanticElement = styled.section<{
 
   display: grid;
   grid-template-rows: 2fr;
+  grid-gap: 0.25rem;
 
   @media ${Breakpoints.desktop} {
     grid-template-columns: 1fr 1fr;
@@ -46,22 +47,19 @@ export const SemanticElement = styled.section<{
     width: 100%;
 
     .highlight-post-entry {
-      margin: 0.25rem 0 0.25rem 0.25rem;
-
       :first-child {
         margin-top: 0;
+        margin-bottom: 0.25rem;
       }
 
       :last-child {
+        margin-top: 0.25rem;
         margin-bottom: 0;
       }
     }
   }
 
-  @media ${Breakpoints.laptop_small},
-    ${Breakpoints.tablet},
-    ${Breakpoints.mobile},
-    ${Breakpoints.mobile_small} {
+  @media ${Breakpoints.laptop_small}, ${Breakpoints.tablet} {
     .highlight-posts {
       .highlight-post-entry {
         :first-child {
