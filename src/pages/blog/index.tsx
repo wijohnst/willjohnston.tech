@@ -14,9 +14,9 @@ const Blog = ({}: Props) => {
 };
 
 const SemanticElement = styled.section`
-  background-color: lightpink;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 export default Blog;

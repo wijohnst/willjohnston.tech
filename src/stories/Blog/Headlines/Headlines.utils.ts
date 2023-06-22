@@ -1,4 +1,5 @@
 import { BlogFrontmatter, BlogList } from '@/stories/Blog/Blog.types';
+import { Breakpoints } from '@/types/app.types';
 
 export type ParsedBlogList = {
   featuredPost: BlogFrontmatter;
@@ -19,4 +20,20 @@ export const parseBlogList = (blogList: BlogList): ParsedBlogList => {
   const highlightPosts = blogMetaData.filter((blog) => blog.isHighlight);
 
   return { featuredPost, highlightPosts };
+};
+
+export const getImagePath = (
+  currentBreakpoint: keyof typeof Breakpoints,
+): 'desktop' | 'tablet' | 'mobile' => {
+  switch (currentBreakpoint) {
+    case 'mobile':
+    case 'mobile_small':
+      return 'mobile';
+    case 'tablet_small':
+    case 'tablet':
+      return 'tablet';
+    case 'desktop':
+    case 'laptop':
+      return 'desktop';
+  }
 };

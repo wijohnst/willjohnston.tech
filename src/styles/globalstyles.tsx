@@ -1,5 +1,4 @@
 import {
-  Breakpoints,
   ColorValuesLightTheme,
   ColorValuesThemeAgnostic,
 } from '@/types/app.types';

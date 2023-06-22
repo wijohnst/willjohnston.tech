@@ -7,11 +7,20 @@ export const SemanticElement = styled.div`
   background-color: ${ColorValuesLightTheme['color-least-prominent']};
   color: ${ColorValuesLightTheme['color-most-prominent']};
 
-  @media ${Breakpoints.tablet} {
+  @media ${Breakpoints.laptop},
+    ${Breakpoints.tablet},
+    ${Breakpoints.tablet_small} {
     position: relative;
+    max-width: 318px;
   }
 
-  @media ${Breakpoints.mobile} {
+  @media ${Breakpoints.tablet} {
+  }
+
+  @media ${Breakpoints.tablet_small} {
+  }
+
+  @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
     img {
       padding: 0.25rem;
     }
@@ -37,7 +46,9 @@ export const SemanticElement = styled.div`
       line-height: 1.5;
     }
 
-    @media ${Breakpoints.tablet} {
+    @media ${Breakpoints.laptop},
+      ${Breakpoints.tablet},
+      ${Breakpoints.tablet_small} {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -67,7 +78,7 @@ export const SemanticElement = styled.div`
       }
     }
 
-    @media ${(Breakpoints.mobile, Breakpoints.mobile_small)} {
+    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
       position: inherit;
       .highlight-header {
         h6 {

@@ -10,17 +10,26 @@ export const SemanticElement = styled.div`
   color: ${ColorValuesLightTheme['color-most-prominent']};
   overflow: hidden;
   margin: 0 0 0.25rem 0;
+  height: 100%;
 
   @media ${Breakpoints.laptop} {
     max-width: 680px;
   }
 
-  @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
+  @media ${Breakpoints.tablet} {
     max-width: 475px;
   }
 
-  @media ${(Breakpoints.mobile, Breakpoints.mobile_small)} {
-    max-width: 475px;
+  @media ${Breakpoints.tablet_small} {
+    max-width: 420px;
+  }
+
+  @media ${Breakpoints.mobile} {
+    max-width: 385px;
+  }
+
+  @media ${Breakpoints.mobile_small} {
+    max-width: 360px;
   }
 
   .summary-content {

@@ -7,8 +7,8 @@ import {
   ImagePaths,
   featuredPostImageDimensions,
 } from '@/stories/Blog/Blog.types';
-import { Breakpoints } from '@/types/app.types';
 import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+import { getImagePath } from '../Headlines.utils';
 
 type Props = {
   featuredPostMetaData: HeadlineMetaData;
@@ -21,22 +21,6 @@ const FeaturedPost = ({ featuredPostMetaData, heroImagePaths }: Props) => {
   const currentBreakpoint = useGetMediaQuery('desktop');
 
   const { height, width } = featuredPostImageDimensions[currentBreakpoint];
-
-  const getImagePath = (
-    currentBreakpoint: keyof typeof Breakpoints,
-  ): 'desktop' | 'tablet' | 'mobile' => {
-    switch (currentBreakpoint) {
-      case 'mobile':
-      case 'mobile_small':
-        return 'mobile';
-      case 'tablet':
-      case 'tablet_small':
-        return 'tablet';
-      case 'desktop':
-      case 'laptop':
-        return 'desktop';
-    }
-  };
 
   const imageSrc = heroImagePaths[getImagePath(currentBreakpoint)];
 
