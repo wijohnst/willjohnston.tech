@@ -6,6 +6,8 @@ import { Breakpoints } from '@/types/app.types';
 import { SemanticElement } from '@/stories/Blog/Headlines/HighlightPost/HighlightPost.style';
 import { HeadlineMetaData, ImagePaths } from '@/stories/Blog/Blog.types';
 import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+import { getImagePath } from '../Headlines.utils';
+import { highlightPostImageDimensions } from '@/stories/Blog/Blog.types';
 
 type Props = {
   highlighPostMetaData: HeadlineMetaData;
@@ -17,17 +19,17 @@ const HighlightPost = ({
   heroImagePaths,
 }: Props): React.ReactElement => {
   const { heroImageAlt, title } = highlighPostMetaData;
+  const currentBreakpoint = useGetMediaQuery();
+  const { height, width } = highlightPostImageDimensions[currentBreakpoint];
+  const imageSrc = heroImagePaths[getImagePath(currentBreakpoint)];
 
-  const match = useGetMediaQuery();
-
-  const isMobile = match === 'mobile' || match === 'mobile_small';
   return (
     <SemanticElement>
       <Image
         alt={heroImageAlt}
-        src={isMobile ? heroImagePaths.mobile : heroImagePaths.desktop}
-        height={isMobile ? 130 : 300}
-        width={isMobile ? 385 : 338}
+        src={`/${imageSrc}`}
+        height={height}
+        width={width}
       />
       <div className="summary-content">
         <div className="highlight-header">

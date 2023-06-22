@@ -46,7 +46,7 @@ const Headlines = ({}: Props): React.ReactElement => {
               heroImagePaths={{
                 mobile: highlightPost.highlightImageMobile,
                 desktop: highlightPost.highlightImageDesktop,
-                tablet: '/TestImages/Highlight-Tablet.png',
+                tablet: 'TestImages/Highlight-Tablet.png',
               }}
             />
           </div>

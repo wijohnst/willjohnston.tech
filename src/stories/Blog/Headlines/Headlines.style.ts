@@ -5,28 +5,36 @@ export const SemanticElement = styled.section<{
   isMobile: boolean;
 }>`
   margin: 0.25rem 0 0.25rem 0;
-  background-color: lightblue;
   padding: 0.25rem;
-  display: flex;
-  flex-flow: column nowrap;
+  max-width: 1300px;
+
+  display: grid;
+  grid-template-rows: 2fr;
 
   @media ${Breakpoints.desktop} {
-    display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    max-width: 75vw;
   }
 
   @media ${Breakpoints.laptop} {
-    max-width: 680px;
+    grid-template-columns: 2fr 1fr;
   }
 
-  @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
-    max-width: 475px;
+  @media (max-width: 1045px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  @media ${Breakpoints.tablet}, ${Breakpoints.tablet_small} {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+    display: flex;
+    flex-flow: column nowrap;
   }
 
   .featured-post {
-    display: ${({ isMobile }) => (isMobile ? 'block' : 'flex')};
     justify-content: flex-end;
     width: 100%;
   }
@@ -34,7 +42,6 @@ export const SemanticElement = styled.section<{
   .highlight-posts {
     display: flex;
     flex-direction: column;
-    /* overflow-x: ${({ isMobile }) => (isMobile ? 'hidden' : 'scroll')}; */
     height: 100%;
 
     .highlight-post-entry {

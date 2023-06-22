@@ -70,3 +70,30 @@ export const featuredPostImageDimensions: ImageDimensionMap = {
     height: 130,
   },
 };
+
+export const highlightPostImageDimensions: ImageDimensionMap = {
+  desktop: {
+    width: 338,
+    height: 300,
+  },
+  laptop: {
+    width: 338,
+    height: 300,
+  },
+  tablet: {
+    width: 318,
+    height: 274,
+  },
+  tablet_small: {
+    width: 318,
+    height: 274,
+  },
+  mobile: {
+    width: 174,
+    height: 118,
+  },
+  mobile_small: {
+    width: 174,
+    height: 118,
+  },
+};
