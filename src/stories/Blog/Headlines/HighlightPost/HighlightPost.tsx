@@ -1,12 +1,10 @@
 import * as React from 'react';
 import Image from 'next/image';
 
-import { useMediaQuery } from '@/hooks';
-import { Breakpoints } from '@/types/app.types';
 import { SemanticElement } from '@/stories/Blog/Headlines/HighlightPost/HighlightPost.style';
 import { HeadlineMetaData, ImagePaths } from '@/stories/Blog/Blog.types';
 import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
-import { getImagePath } from '../Headlines.utils';
+import { getMaxWidth, getImagePath } from '../Headlines.utils';
 import { highlightPostImageDimensions } from '@/stories/Blog/Blog.types';
 
 type Props = {
@@ -24,7 +22,7 @@ const HighlightPost = ({
   const imageSrc = heroImagePaths[getImagePath(currentBreakpoint)];
 
   return (
-    <SemanticElement>
+    <SemanticElement highlightMaxWidth={getMaxWidth(currentBreakpoint)}>
       <Image
         alt={heroImageAlt}
         src={`/${imageSrc}`}

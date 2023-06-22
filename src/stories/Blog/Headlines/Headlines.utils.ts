@@ -34,6 +34,28 @@ export const getImagePath = (
       return 'tablet';
     case 'desktop':
     case 'laptop':
+    case 'laptop_small':
       return 'desktop';
+  }
+};
+
+export const getMaxWidth = (
+  currentBreakpoint: keyof typeof Breakpoints,
+): number => {
+  switch (currentBreakpoint) {
+    case 'desktop':
+    case 'laptop':
+    case 'laptop_small':
+      return 680;
+    case 'tablet':
+      return 475;
+    case 'tablet_small':
+      return 420;
+    case 'mobile':
+      return 385;
+    case 'mobile_small':
+      return 360;
+    default:
+      return 680;
   }
 };

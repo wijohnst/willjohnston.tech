@@ -1,23 +1,20 @@
 import { Breakpoints, ColorValuesLightTheme } from '@/types/app.types';
 import styled from 'styled-components';
 
-export const SemanticElement = styled.div`
+export const SemanticElement = styled.div<{
+  highlightMaxWidth: number;
+}>`
   display: flex;
   flex-flow: row nowrap;
   background-color: ${ColorValuesLightTheme['color-least-prominent']};
   color: ${ColorValuesLightTheme['color-most-prominent']};
+  max-width: ${({ highlightMaxWidth }) => `${highlightMaxWidth}px`};
 
   @media ${Breakpoints.laptop},
+    ${Breakpoints.laptop_small},
     ${Breakpoints.tablet},
     ${Breakpoints.tablet_small} {
     position: relative;
-    max-width: 318px;
-  }
-
-  @media ${Breakpoints.tablet} {
-  }
-
-  @media ${Breakpoints.tablet_small} {
   }
 
   @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
@@ -27,7 +24,7 @@ export const SemanticElement = styled.div`
   }
 
   .summary-content {
-    width: 100%;
+    /* width: 100%; */
 
     display: flex;
     flex-flow: column;
@@ -47,12 +44,14 @@ export const SemanticElement = styled.div`
     }
 
     @media ${Breakpoints.laptop},
+      ${Breakpoints.laptop_small},
       ${Breakpoints.tablet},
       ${Breakpoints.tablet_small} {
       position: absolute;
       width: 100%;
       height: 100%;
       padding: 0;
+      margin: 0;
 
       .highlight-header {
         height: 50%;
@@ -78,6 +77,30 @@ export const SemanticElement = styled.div`
       }
     }
 
+    @media ${Breakpoints.laptop_small} {
+      position: inherit;
+      background-color: red;
+      width: 680px;
+
+      .highlight-header {
+        h6 {
+          padding: 0.25rem 0 0 0;
+          background-color: transparent;
+          font-size: 1rem;
+        }
+      }
+
+      .title-container {
+        h4 {
+          padding: 0;
+          overflow: hidden;
+          font-size: 1.5rem;
+          background-color: transparent;
+          line-height: 1;
+        }
+      }
+    }
+
     @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
       position: inherit;
       .highlight-header {
@@ -94,7 +117,7 @@ export const SemanticElement = styled.div`
           font-size: 0.5rem;
           background-color: transparent;
           line-height: 1;
-          max-width: 90%;
+          max-width: 100%;
         }
       }
     }

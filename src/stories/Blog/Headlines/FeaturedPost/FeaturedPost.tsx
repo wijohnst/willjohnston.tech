@@ -8,7 +8,7 @@ import {
   featuredPostImageDimensions,
 } from '@/stories/Blog/Blog.types';
 import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
-import { getImagePath } from '../Headlines.utils';
+import { getImagePath, getMaxWidth } from '../Headlines.utils';
 
 type Props = {
   featuredPostMetaData: HeadlineMetaData;
@@ -25,7 +25,7 @@ const FeaturedPost = ({ featuredPostMetaData, heroImagePaths }: Props) => {
   const imageSrc = heroImagePaths[getImagePath(currentBreakpoint)];
 
   return (
-    <SemanticElement>
+    <SemanticElement maxWidth={getMaxWidth(currentBreakpoint)}>
       <Image
         alt={heroImageAlt}
         src={`/${imageSrc}`}

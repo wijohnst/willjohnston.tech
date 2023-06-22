@@ -19,7 +19,7 @@ export const SemanticElement = styled.section<{
     grid-template-columns: 2fr 1fr;
   }
 
-  @media (max-width: 1045px) {
+  @media ${Breakpoints.laptop_small} {
     grid-template-columns: 1fr;
     justify-items: center;
   }
@@ -43,18 +43,35 @@ export const SemanticElement = styled.section<{
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
 
     .highlight-post-entry {
-      margin: ${({ isMobile }) =>
-        isMobile ? '0.11rem 0 0.1rem 0' : '0 0 0.25rem 0.25rem'};
+      margin: 0.25rem 0 0.25rem 0.25rem;
 
       :first-child {
-        margin: ${({ isMobile }) => (isMobile ? '0.25rem 0 0.1rem 0' : '')};
+        margin-top: 0;
+      }
+
+      :last-child {
+        margin-bottom: 0;
       }
     }
+  }
 
-    :last-child {
-      margin-bottom: 0;
+  @media ${Breakpoints.laptop_small},
+    ${Breakpoints.tablet},
+    ${Breakpoints.mobile},
+    ${Breakpoints.mobile_small} {
+    .highlight-posts {
+      .highlight-post-entry {
+        :first-child {
+          margin-top: 0.25rem;
+        }
+
+        :last-child {
+          margin-bottom: 0.25rem;
+        }
+      }
     }
   }
 `;

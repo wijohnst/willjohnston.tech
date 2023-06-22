@@ -53,6 +53,10 @@ export const featuredPostImageDimensions: ImageDimensionMap = {
     width: 680,
     height: 454,
   },
+  laptop_small: {
+    width: 680,
+    height: 454,
+  },
   tablet: {
     width: 475,
     height: 525,
@@ -77,6 +81,10 @@ export const highlightPostImageDimensions: ImageDimensionMap = {
     height: 300,
   },
   laptop: {
+    width: 338,
+    height: 300,
+  },
+  laptop_small: {
     width: 338,
     height: 300,
   },
