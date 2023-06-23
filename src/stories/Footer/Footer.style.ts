@@ -1,3 +1,4 @@
+import { Breakpoints } from '@/types/app.types';
 import styled from 'styled-components';
 
 export const SemanticElement = styled.footer`
@@ -11,6 +12,13 @@ export const SemanticElement = styled.footer`
   background-color: var(--wjt-color-most-prominent);
   position: sticky;
   bottom: 0;
+
+  @media ${Breakpoints.tablet},
+    ${Breakpoints.tablet_small},
+    ${Breakpoints.mobile},
+    ${Breakpoints.mobile_small} {
+    display: none;
+  }
 `;
 
 export const FooterInfoBox = styled.section`
