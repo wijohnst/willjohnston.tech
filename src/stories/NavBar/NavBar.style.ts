@@ -1,7 +1,7 @@
+import { Breakpoints } from '@/types/app.types';
 import styled from 'styled-components';
-import { device } from '@/styles/mediaQueries';
 
-export const Nav = styled.nav`
+export const SemanticElement = styled.nav`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
@@ -18,11 +18,17 @@ export const Nav = styled.nav`
 `;
 
 export const IconWrapper = styled.div`
-  @media ${device.laptopL} {
-    width: 75px;
+  width: 75px;
+
+  @media ${Breakpoints.laptop}, ${Breakpoints.laptop_small} {
+    width: 60px;
   }
 
-  @media ${device.tablet} {
+  @media ${Breakpoints.tablet}, ${Breakpoints.tablet_small} {
     width: 50px;
+  }
+
+  @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+    width: 0;
   }
 `;
