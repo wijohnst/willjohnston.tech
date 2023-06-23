@@ -28,6 +28,18 @@ export const SemanticElement = styled.div<{
     flex-flow: column nowrap;
     justify-content: space-around;
 
+    @media ${Breakpoints.tablet_small},
+      ${Breakpoints.mobile},
+      ${Breakpoints.mobile_small} {
+      h5 {
+        display: none;
+      }
+
+      h4 {
+        margin: 0.25rem 0 0.25rem 0;
+      }
+    }
+
     span {
       max-width: 95%;
       font-weight: 300;
