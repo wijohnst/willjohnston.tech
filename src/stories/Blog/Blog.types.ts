@@ -105,3 +105,5 @@ export const highlightPostImageDimensions: ImageDimensionMap = {
     height: 118,
   },
 };
+
+export type NextPath = { params: Record<string, string> };
