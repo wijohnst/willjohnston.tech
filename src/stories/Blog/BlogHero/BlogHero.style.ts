@@ -17,6 +17,18 @@ export const SemanticElement = styled.section`
     min-height: 500px;
   }
 
+  @media ${Breakpoints.laptop}, ${Breakpoints.laptop_small} {
+    min-height: 350px;
+  }
+
+  @media ${Breakpoints.tablet}, ${Breakpoints.tablet_small} {
+    min-height: 300px;
+  }
+
+  @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+    text-align: center;
+  }
+
   .title-wrapper {
     width: 100%;
     height: 100%;
@@ -24,6 +36,18 @@ export const SemanticElement = styled.section`
     display: flex;
     justify-content: center;
     align-items: flex-end;
+
+    @media ${Breakpoints.tablet}, ${Breakpoints.tablet_small} {
+      h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
   }
 
   .subtitle-wrapper {
@@ -37,6 +61,23 @@ export const SemanticElement = styled.section`
 
     h4 {
       padding: 1rem;
+    }
+
+    @media ${Breakpoints.tablet}, ${Breakpoints.tablet_small} {
+      h4 {
+        font-size: 1rem;
+        padding: 0.75rem;
+      }
+    }
+
+    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+      justify-content: center;
+      align-items: center;
+
+      h4 {
+        font-size: 0.75rem;
+        padding: 0;
+      }
     }
   }
 `;
