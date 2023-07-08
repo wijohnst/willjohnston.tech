@@ -8,7 +8,11 @@ describe(`RevealList`, () => {
   describe('Render Tests', () => {
     it.skip('Should render the component', () => {
       render(
-        <RevealList activeHeading={undefined} handleHeadingChange={() => {}} />,
+        <RevealList
+          activeHeading={undefined}
+          handleHeadingChange={() => {}}
+          activatedHeadings={[]}
+        />,
       );
       expect(screen.getByTestId('reveal-list')).toBeInTheDocument();
     });
