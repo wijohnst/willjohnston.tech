@@ -1,5 +1,18 @@
 import { BlogList, NextPath } from '@/stories/Blog/Blog.types';
 import { getBlogPostPaths, convertContentToHTML } from './blogUtils';
+import { remark } from 'remark';
+
+jest.mock('remark', () => ({
+  remark: jest.fn().mockImplementation(() => ({
+    use: jest.fn().mockImplementation(() => ({
+      process: jest.fn().mockImplementation(() => '<h1>Test Header</h1>'),
+    })),
+  })),
+}));
+
+jest.mock('remark-html', () => ({
+  html: jest.fn(),
+}));
 
 describe('Blog Utils', () => {
   const defaultBlogFrontmatterAsJsObject = {

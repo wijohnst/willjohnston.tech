@@ -19,6 +19,12 @@ export const getBlogPostPaths = (blogList: BlogList): NextPath[] => {
   });
 };
 
+/**
+ * Accepts a `content : string` and returns a Promise of HTML string
+ *
+ * @param {string }content
+ * @returns { Promise<string> }
+ */
 export const convertContentToHTML = async (
   content: string,
 ): Promise<string> => {
