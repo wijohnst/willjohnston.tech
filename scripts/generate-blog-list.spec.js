@@ -2,7 +2,6 @@ import {
   failedTestOutput,
   getBlogListMetaDataArray,
   isBlogListMetaDataValid,
-  defaultBlogFrontmatter,
   defaultBlogFrontmatterAsJsObject,
 } from './generateBlogListUtils.mjs';
 import mock from 'mock-fs';

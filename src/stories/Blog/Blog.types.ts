@@ -1,7 +1,4 @@
 import { Breakpoints } from '@/types/app.types';
-import matter from 'gray-matter';
-import { StaticImageData } from 'next/image';
-import { ReactElement } from 'react';
 
 export type BlogFrontmatter = {
   title: string;
@@ -107,3 +104,49 @@ export const highlightPostImageDimensions: ImageDimensionMap = {
 };
 
 export type NextPath = { params: Record<string, string> };
+
+export namespace BlogListModule {
+  export const defaultBlogFrontmatterAsJsObject: BlogFrontmatter = {
+    title: 'TestPost',
+    slug: 'test-post',
+    createdDate: '07/18/2023',
+    summary: 'A sample test post for WillJohnston.tech',
+    featuredImageDesktop: '/TestImages/Desktop.png',
+    featuredImageMobile: '/TestImages/Mobile.png',
+    highlightImageDesktop: '/TestImages/Highlight-Desktop.png',
+    highlightImageMobile: '/TestImages/Highlight-Mobile.png',
+    heroImageAlt: 'A sample image',
+    isFeatured: false,
+    isHighlight: false,
+  };
+
+  export const mockBlogList: BlogList = [
+    {
+      content: 'content_1',
+      data: defaultBlogFrontmatterAsJsObject,
+    },
+    {
+      content: 'content_2',
+      data: {
+        ...defaultBlogFrontmatterAsJsObject,
+        title: 'TestPost 2',
+        slug: 'test-post-2',
+      },
+    },
+    {
+      content: 'content_3',
+      data: {
+        ...defaultBlogFrontmatterAsJsObject,
+        title: 'TestPost 3',
+        slug: 'test-post-3',
+      },
+    },
+  ];
+}
+export namespace BlogNav {
+  type BlogMetaData = {
+    title: string;
+    slug: string;
+  };
+  export type BlogYears = Record<string, BlogMetaData[]>;
+}
