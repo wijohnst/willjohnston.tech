@@ -8,9 +8,9 @@ import bloglist from '../../../../bloglist.json';
  */
 export const getBlogYears = (
   blogList: BlogList = bloglist,
-): BlogNav.BlogYears | [] => {
+): BlogNav.BlogYears => {
   return blogList.reduce(
-    (years: BlogNav.BlogYears | [], blogListEntry: BlogListMetaData) => {
+    (years: BlogNav.BlogYears, blogListEntry: BlogListMetaData) => {
       const targetYear: string = getYearsAsAString(
         new Date(blogListEntry.data.createdDate),
       );
@@ -26,7 +26,7 @@ export const getBlogYears = (
         ],
       };
     },
-    [],
+    {},
   );
 };
 

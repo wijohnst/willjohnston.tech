@@ -149,4 +149,9 @@ export namespace BlogNav {
     slug: string;
   };
   export type BlogYears = Record<string, BlogMetaData[]>;
+
+  export type BlogListEntryProps = {
+    yearValue: string;
+    blogMetaDataArray: BlogMetaData[];
+  };
 }
