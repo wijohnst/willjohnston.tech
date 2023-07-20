@@ -1,6 +1,5 @@
 import { BlogList, NextPath } from '@/stories/Blog/Blog.types';
 import { getBlogPostPaths, convertContentToHTML } from './blogUtils';
-import { remark } from 'remark';
 
 jest.mock('remark', () => ({
   remark: jest.fn().mockImplementation(() => ({

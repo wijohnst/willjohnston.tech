@@ -24,7 +24,7 @@ export const frontmatterKeys = Object.keys(defaultBlogFrontmatterAsJsObject);
  * @returns { { data: { [key: keyof defaultBlogFrontmatterAsJsObject ]: string | boolean }, content: string }[] }
  */
 export const getBlogListMetaDataArray = (dirToTarget) => {
-  const targetDir = dirToTarget ?? './src/pages/blog';
+  const targetDir = dirToTarget ?? './src/pages/blog/posts';
   const fileNames = fs?.readdirSync(targetDir);
   const fileNamesToIgnore = [
     'index.tsx',
@@ -32,6 +32,7 @@ export const getBlogListMetaDataArray = (dirToTarget) => {
     '[slug].tsx',
     'blogUtils.ts',
     'blogUtils.spec.ts',
+    'BlogList',
   ];
 
   return fileNames.reduce((blogListMetaData, fileName) => {
