@@ -24,6 +24,7 @@ const HamburgerMenu = ({ children }: Props): React.ReactElement => {
       {isOpen && (
         <div className="nav-reveal">
           <div className="close-button-wrapper">
+            <div className="close-button-fill" />
             <AppIcon handleClick={() => setIsOpen(false)}>
               <CloseIcon />
             </AppIcon>

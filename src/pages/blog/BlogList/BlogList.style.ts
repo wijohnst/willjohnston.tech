@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 export const SemanticElement = styled.nav`
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   border: solid;
+  width: clamp(200px, 20vw, 300px);
+  background-color: ${ColorValuesLightTheme['color-most-prominent']};
   border-color: ${ColorValuesLightTheme['color-least-prominent']};
   color: ${ColorValuesLightTheme['color-least-prominent']};
   padding: 0.5rem;
