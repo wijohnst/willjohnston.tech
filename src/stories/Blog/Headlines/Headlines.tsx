@@ -6,7 +6,9 @@ import { parseBlogList } from './Headlines.utils';
 import { SemanticElement } from '@/stories/Blog/Headlines/Headlines.style';
 import FeaturedPost from './FeaturedPost/FeaturedPost';
 import { HighlightPost } from './HighlightPost/HighlightPost';
+
 import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+import { useRouter } from 'next/router';
 
 export type Props = {};
 
@@ -14,11 +16,16 @@ const Headlines = ({}: Props): React.ReactElement => {
   const { featuredPost, highlightPosts } = parseBlogList(bloglist);
 
   const matches = useGetMediaQuery();
+  const router = useRouter();
   const isMobile = matches === 'mobile' || matches === 'mobile_small';
 
   return (
     <SemanticElement isMobile={isMobile}>
-      <div className="featured-post">
+      <div
+        className="featured-post"
+        onClick={() => router.push(`blog/${featuredPost.slug}`)}
+        role="link"
+      >
         <FeaturedPost
           featuredPostMetaData={{
             title: featuredPost.title,
@@ -35,7 +42,12 @@ const Headlines = ({}: Props): React.ReactElement => {
       </div>
       <div className="highlight-posts">
         {highlightPosts.map((highlightPost) => (
-          <div className="highlight-post-entry" key={highlightPost.slug}>
+          <div
+            className="highlight-post-entry"
+            key={highlightPost.slug}
+            onClick={() => router.push(`blog/${highlightPost.slug}`)}
+            role="link"
+          >
             <HighlightPost
               highlighPostMetaData={{
                 title: highlightPost.title,
