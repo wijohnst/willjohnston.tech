@@ -26,6 +26,17 @@ export const SemanticElement = styled.section`
     }
   }
 
+  .icon-fill {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+
+    @media ${(Breakpoints.tablet, Breakpoints.tablet_small)} {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
   .icons {
     display: flex;
     justify-content: center;

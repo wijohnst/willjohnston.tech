@@ -5,21 +5,20 @@ import { Headlines } from '@/stories/Blog/Headlines/Headlines';
 import { BlogList } from './BlogList/BlogList';
 import { HamburgerMenu } from '@/stories/HamburgerMenu/HamburgerMenu';
 import { Breakpoints, ColorValuesLightTheme } from '@/types/app.types';
+import { useMediaQuery } from '@/hooks';
 
 interface Props {}
 
 const Blog = ({}: Props) => {
+  const isDesktop = useMediaQuery(Breakpoints.desktop);
+
   return (
     <SemanticElement>
-      <div className="nav-wrapper">
-        <div className="bloglist-wrapper">
+      {isDesktop && <BlogList />}
+      <div className="hamburger-menu-wrapper">
+        <HamburgerMenu>
           <BlogList />
-        </div>
-        <div className="hamburger-menu-wrapper">
-          <HamburgerMenu>
-            <BlogList />
-          </HamburgerMenu>
-        </div>
+        </HamburgerMenu>
       </div>
       <Headlines />
     </SemanticElement>
@@ -30,32 +29,35 @@ const SemanticElement = styled.section`
   display: flex;
   justify-content: center;
 
-  .nav-wrapper {
-    background-color: red;
-  }
-
-  .bloglist-wrapper {
-    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
-      display: none;
-    }
-  }
-
   .hamburger-menu-wrapper {
     display: none;
-    min-width: 50px;
+    width: 50px;
     position: absolute;
-    top: 6%;
-    left: 1%;
+    z-index: 99;
 
     :has(ul) {
       padding: 0.25rem;
     }
 
-    background-color: ${ColorValuesLightTheme['color-most-prominent']};
+    /* background-color: ${ColorValuesLightTheme['color-most-prominent']}; */
 
-    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+    @media ${Breakpoints.laptop},
+      ${Breakpoints.laptop_small},
+      ${Breakpoints.tablet},
+      ${Breakpoints.tablet_small} {
+      top: 10%;
+      left: 1%;
       display: block;
     }
+
+    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+      top: 6%;
+      left: 1%;
+      display: block;
+    }
+  }
+
+  .hamburger-menu-wrapper::before {
   }
 `;
 

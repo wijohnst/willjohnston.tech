@@ -14,9 +14,12 @@ const HamburgerMenu = ({ children }: Props): React.ReactElement => {
   return (
     <SemanticElement>
       {!isOpen && (
-        <AppIcon handleClick={() => setIsOpen(true)}>
-          <HamburgerIcon />
-        </AppIcon>
+        <div className="icon-wrapper">
+          <div className="icon-fill" />
+          <AppIcon handleClick={() => setIsOpen(true)}>
+            <HamburgerIcon />
+          </AppIcon>
+        </div>
       )}
       {isOpen && (
         <div className="nav-reveal">
