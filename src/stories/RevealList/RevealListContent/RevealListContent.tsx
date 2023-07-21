@@ -8,9 +8,7 @@ import {
 import {
   BodyContentContainer,
   BuildingBlock,
-  ConsultingBodyContentContainer,
   ConsultingHeadingContentContainer,
-  FreelanceBodyContentContainer,
   FreelanceHeadingContentContainer,
   MentorshipHeadingContentContainer,
   SemanticElement,
@@ -158,33 +156,44 @@ const ConsultingHeadingContent = (): React.ReactElement => {
           className="icon-wrapper"
           style={getStyle(currentQuality === 'empathy')}
         >
-          <AppIcon handleClick={() => updateCurrentQuality('empathy')}>
-            <EmpathyIcon />
-          </AppIcon>
+          <div
+            className="icon-fill"
+            style={getStyle(currentQuality === 'empathy')}
+          >
+            <AppIcon handleClick={() => updateCurrentQuality('empathy')}>
+              <EmpathyIcon />
+            </AppIcon>
+          </div>
         </div>
-        <div
-          className="icon-wrapper"
-          style={getStyle(currentQuality === 'technology')}
-        >
-          <AppIcon handleClick={() => updateCurrentQuality('technology')}>
-            <CodeIcon />
-          </AppIcon>
+        <div className="icon-wrapper">
+          <div
+            className="icon-fill"
+            style={getStyle(currentQuality === 'technology')}
+          >
+            <AppIcon handleClick={() => updateCurrentQuality('technology')}>
+              <CodeIcon />
+            </AppIcon>
+          </div>
         </div>
-        <div
-          className="icon-wrapper"
-          style={getStyle(currentQuality === 'data')}
-        >
-          <AppIcon handleClick={() => updateCurrentQuality('data')}>
-            <DataIcon />
-          </AppIcon>
+        <div className="icon-wrapper">
+          <div
+            className="icon-fill"
+            style={getStyle(currentQuality === 'data')}
+          >
+            <AppIcon handleClick={() => updateCurrentQuality('data')}>
+              <DataIcon />
+            </AppIcon>
+          </div>
         </div>
-        <div
-          className="icon-wrapper"
-          style={getStyle(currentQuality === 'experience')}
-        >
-          <AppIcon handleClick={() => updateCurrentQuality('experience')}>
-            <ExperienceIcon />
-          </AppIcon>
+        <div className="icon-wrapper">
+          <div
+            className="icon-fill"
+            style={getStyle(currentQuality === 'experience')}
+          >
+            <AppIcon handleClick={() => updateCurrentQuality('experience')}>
+              <ExperienceIcon />
+            </AppIcon>
+          </div>
         </div>
       </div>
     </ConsultingHeadingContentContainer>
