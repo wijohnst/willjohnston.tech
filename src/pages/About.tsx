@@ -1,9 +1,18 @@
-import * as React from 'react'
+import * as React from 'react';
+
+import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+
+import { AboutPic } from '@/stories/About/AboutPic/AboutPic';
+import { getAboutPicDimensionsFromBreakpoint } from '@/stories/About/About.utils';
 
 interface Props {}
 
 const About = ({}: Props) => {
-  return <span> About Works!</span>
-}
+  const breakpoint = useGetMediaQuery();
 
-export default About
+  const { height, width } = getAboutPicDimensionsFromBreakpoint(breakpoint);
+
+  return <AboutPic height={height} width={width} />;
+};
+
+export default About;
