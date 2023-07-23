@@ -2,12 +2,11 @@ import * as React from 'react';
 
 import { SemanticElement } from '@/stories/PageHeadline/PageHeadline.style';
 
-const PageHeadline = (): React.ReactElement => {
-  return (
-    <SemanticElement>
-      <span>Heading 1</span>
-    </SemanticElement>
-  );
+type Props = {
+  children: React.ReactNode;
+};
+const PageHeadline = ({ children }: Props): React.ReactElement => {
+  return <SemanticElement>{children}</SemanticElement>;
 };
 
 export { PageHeadline };
