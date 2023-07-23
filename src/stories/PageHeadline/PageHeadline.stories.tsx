@@ -9,7 +9,11 @@ export default {
   decorators: [(Story) => <Story />],
 } as Meta<typeof PageHeadline>;
 
-const Template: StoryFn<typeof PageHeadline> = (args) => <PageHeadline />;
+const Template: StoryFn<typeof PageHeadline> = (args) => (
+  <PageHeadline>{args.children}</PageHeadline>
+);
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  children: 'Heading 1',
+};

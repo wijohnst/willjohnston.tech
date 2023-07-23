@@ -111,6 +111,11 @@ h5{
 h6{
 	font-size: .75rem;
 }
+
+p{
+	line-height: 1.25rem;
+	padding: 0 0 .5rem 0;
+}
 `;
 
 export default GlobalStyle;
