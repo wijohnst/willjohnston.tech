@@ -8,33 +8,10 @@ type Props = {
 };
 
 const PortfolioContent = ({ portfolioFrames }: Props): React.ReactElement => {
-  let targetIndex = 0;
+  const [targetPortfolioFrame, _setTargetPortfolioFrame] =
+    React.useState<React.ReactElement | null>(portfolioFrames[0]);
 
-  const wrapperRef = React.useRef<HTMLDivElement>(null);
-
-  const targetPortfolioFrame = portfolioFrames[targetIndex];
-
-  const handleScroll = () => {
-    const scrollPosition = Math.abs(
-      wrapperRef?.current?.getBoundingClientRect()?.top ||
-        //@ts-ignore
-        1 - wrapperRef?.current?.offsetTop ||
-        0,
-    );
-    console.log(scrollPosition);
-  };
-
-  React.useEffect(() => {
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  return (
-    <SemanticElement ref={wrapperRef}>{targetPortfolioFrame}</SemanticElement>
-  );
+  return <SemanticElement>{targetPortfolioFrame}</SemanticElement>;
 };
 
 export { PortfolioContent };

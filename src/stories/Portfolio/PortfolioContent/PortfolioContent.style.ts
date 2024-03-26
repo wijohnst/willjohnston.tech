@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const SemanticElement = styled.div`
   background-color: lightpink;
-  height: 2000px;
-  width: 700px;
+  width: 100%;
+  min-height: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
