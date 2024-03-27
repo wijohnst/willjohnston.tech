@@ -20,7 +20,7 @@ export const Default = Template.bind({});
 Default.args = {
   portfolioFrames: [
     <PortfolioFrame key="foo">
-      <div style={{ height: '800px' }}>
+      <div>
         <h1>This is the first Frame</h1>
         <div style={{ height: '400px' }}>
           <span>This is the content</span>
