@@ -9,6 +9,6 @@ export const SemanticElement = styled.div`
   cursor: pointer;
 
   label {
-    margin: 0.25rem 0 0 0;
+    font-size: 0.75rem;
   }
 `;
