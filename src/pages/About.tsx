@@ -18,7 +18,9 @@ const About = ({}: Props) => {
 
   return (
     <SemanticElement>
-      <PageHeadline>About</PageHeadline>
+      <PageHeadline>
+        <h1>About</h1>
+      </PageHeadline>
       <div className="content-wrapper">
         <div className="about-pic-wrapper">
           <AboutPic height={height} width={width} />

@@ -2,20 +2,25 @@ import * as React from 'react';
 
 import { SemanticElement } from '@/stories/IconLabel/IconLabel.style';
 import { AppIcon } from '../AppIcon/AppIcon';
-import MissingIcon from '@@/public/Icons/missing-icon.svg';
 
 type Props = {
   children?: React.ReactElement;
   labelText?: string;
+  handleClick?: () => void;
 };
 
 const IconLabel = ({
   children,
   labelText = 'Label',
+  handleClick,
 }: Props): React.ReactElement => {
   return (
     <SemanticElement>
-      <AppIcon aria-role="button">{children}</AppIcon>
+      <div className="icon-wrapper">
+        <AppIcon aria-role="button" handleClick={handleClick}>
+          {children}
+        </AppIcon>
+      </div>
       <label>{labelText}</label>
     </SemanticElement>
   );
