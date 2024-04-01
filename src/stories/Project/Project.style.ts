@@ -19,13 +19,13 @@ export const SemanticElement = styled.section`
     text-align: center;
 
     @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
-      font-size: 1.5rem;
+      /* font-size: 1.5rem; */
     }
   }
 
   .project-content-wrapper {
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-template-columns: auto 1fr;
     grid-gap: 0.33rem;
     background-color: var(--wjt-color-least-prominent);
 
@@ -33,7 +33,7 @@ export const SemanticElement = styled.section`
     }
 
     .content-image-wrapper {
-      min-height: 420px;
+      padding: 0.33rem;
     }
 
     .content-text-wrapper {

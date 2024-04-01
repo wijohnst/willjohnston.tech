@@ -1,21 +1,18 @@
 import * as React from 'react';
 import { Breakpoints } from '@/types/app.types';
-import useMediaQuery from '../useMediaQuery/useMediaQuery';
-import { match } from 'assert';
 
 /**
  * Accepts an array of Breakpoints and returns the key of the breakpoint that is currently active
  *
- * @param breakpointsToCheck {Array<keyof typeof Breakpoints>}
+ * @param defaultBreakpoint {keyof typeof Breakpoints}
  * @returns {Array<keyof typeof Breakpoints>}
  */
 const useGetMediaQuery = (
   defaultBreakpoint?: keyof typeof Breakpoints,
-): keyof typeof Breakpoints => {
-  const breakpointsToCheck: Array<keyof typeof Breakpoints> = Object.keys(
+  breakpointsToCheck: Array<keyof typeof Breakpoints> = Object.keys(
     Breakpoints,
-  ) as Array<keyof typeof Breakpoints>;
-
+  ) as Array<keyof typeof Breakpoints>,
+): keyof typeof Breakpoints => {
   const getMatchingBreakpoint = (
     breakpointsToCheck: Array<keyof typeof Breakpoints>,
   ): keyof typeof Breakpoints => {

@@ -3,6 +3,7 @@ import {
   ColorValuesThemeAgnostic,
 } from '@/types/app.types';
 import { createGlobalStyle } from 'styled-components';
+import { Breakpoints } from '@/types/app.types';
 
 const GlobalStyle = createGlobalStyle`
 	html, body, div, span, applet, object, iframe,
@@ -94,6 +95,10 @@ h1{
 
 h2 {
 	font-size: 2.75rem;
+
+    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+        font-size: 2.25rem;
+    }
 }
 
 h3{
