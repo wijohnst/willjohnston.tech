@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 
-import Project from '@/stories/Project/Project';
+import { Project } from '@/stories/Project/Project';
 
 export default {
   title: 'Project/Project',

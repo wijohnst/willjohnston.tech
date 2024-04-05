@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SemanticElement = styled.section`
   h1 {
-    margin: 0.25rem;
+    margin: 0.25rem 0 0.25rem 1rem;
   }
 
   p {

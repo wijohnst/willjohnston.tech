@@ -1,7 +1,9 @@
 import * as React from 'react';
-import Project from '@/stories/Project/Project';
+import { Project } from '@/stories/Project/Project';
 import { portfolio } from '@/stories/Portfolio';
 import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+import { PageHeadline } from '@/stories/PageHeadline/PageHeadline';
+import { SemanticElement } from './Portfolio.style';
 
 interface Props {}
 
@@ -28,11 +30,15 @@ const Portfolio = ({}: Props) => {
   };
 
   return (
-    <Project
-      title="Testing"
-      project={portfolio[0]}
-      breakpoint={getMatchingBreakpoint(breakpoint)}
-    />
+    <SemanticElement>
+      <PageHeadline>
+        <h1>Portfolio</h1>
+      </PageHeadline>
+      <Project
+        project={portfolio[0]}
+        breakpoint={getMatchingBreakpoint(breakpoint)}
+      />
+    </SemanticElement>
   );
 };
 

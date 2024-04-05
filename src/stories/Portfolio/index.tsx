@@ -1,5 +1,7 @@
 import Portfolio from '@/pages/Portfolio';
 
+import { TechStackKeys } from '@/stories/Project/TechStackDisplay/TechStack';
+
 export type ImageKey = 'desktop' | 'tablet' | 'mobile';
 
 export type ImagePaths = Record<ImageKey, string>;
@@ -17,7 +19,8 @@ export type ImageConfig = {
 export type Project = {
   title: string;
   images: ImageConfig[];
-  techStack: string[];
+  techStack: Partial<TechStackKeys>[];
+  content: React.ReactElement;
 };
 
 export type Portfolio = Project[];
@@ -41,17 +44,17 @@ const defaultImageDimensions: ImageDimensions = {
   },
   tablet: {
     height: 420,
-    width: 385,
+    width: 735,
   },
   mobile: {
-    height: 430,
-    width: 430,
+    height: 375,
+    width: 375,
   },
 };
 
 export const portfolio: Portfolio = [
   {
-    title: 'Project 1',
+    title: 'Johnston Home Hub',
     images: [
       {
         alt: 'A friendly kitty',
@@ -59,6 +62,7 @@ export const portfolio: Portfolio = [
         imageDimensions: defaultImageDimensions,
       },
     ],
-    techStack: ['React', 'TypeScript', 'Next.js'],
+    techStack: ['react', 'typescript'],
+    content: <p>Johnston Home Hub</p>,
   },
 ];

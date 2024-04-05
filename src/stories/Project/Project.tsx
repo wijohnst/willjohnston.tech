@@ -3,22 +3,29 @@ import Image from 'next/image';
 
 import { SemanticElement } from '@/stories/Project/Project.style';
 import TechStackDisplay, {
-  DefaultControlConfig,
+  ControlConfigEntry,
 } from './TechStackDisplay/TechStackDisplay';
-import { ImageKey, Project } from '@/stories/Portfolio';
+import { ImageKey, Project as ProjectType } from '@/stories/Portfolio';
+import { TechStackKeys, TechStack } from './TechStackDisplay/TechStack';
 
 type Props = {
-  title: string;
-  project: Project;
+  project: ProjectType;
   breakpoint: ImageKey;
 };
 
+const getControlConfigFromTechStackKeys = (
+  keys: Partial<TechStackKeys>[],
+): ControlConfigEntry[] => {
+  return keys.map((key) => {
+    return TechStack[key];
+  });
+};
+
 const Project = ({ project, breakpoint }: Props): React.ReactElement => {
+  const controlConfig = getControlConfigFromTechStackKeys(project.techStack);
+
   return (
     <SemanticElement>
-      <div className="project-title-wrapper">
-        <h2>{project.title}</h2>
-      </div>
       <div className="project-content-wrapper">
         <div className="content-image-wrapper">
           <Image
@@ -28,15 +35,14 @@ const Project = ({ project, breakpoint }: Props): React.ReactElement => {
             alt="A friendly kitty"
           />
         </div>
-        <div className="content-text-wrapper">
-          <span>TEXT</span>
-        </div>
+        <div className="content-text-wrapper">{project.content}</div>
       </div>
       <div className="project-tech-stack-wrapper">
-        <TechStackDisplay controlConfig={DefaultControlConfig} />
+        <h3>Tech Stack</h3>
+        <TechStackDisplay controlConfig={controlConfig} />
       </div>
     </SemanticElement>
   );
 };
 
-export default Project;
+export { Project };
