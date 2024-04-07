@@ -2,6 +2,8 @@ import Portfolio from '@/pages/Portfolio';
 
 import { TechStackKeys } from '@/stories/Project/TechStackDisplay/TechStack';
 
+import { JhhContent } from '../Project/Content';
+
 export type ImageKey = 'desktop' | 'tablet' | 'mobile';
 
 export type ImagePaths = Record<ImageKey, string>;
@@ -63,6 +65,6 @@ export const portfolio: Portfolio = [
       },
     ],
     techStack: ['react', 'typescript'],
-    content: <p>Johnston Home Hub</p>,
+    content: <JhhContent />,
   },
 ];

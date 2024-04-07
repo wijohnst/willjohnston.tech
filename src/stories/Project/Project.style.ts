@@ -48,7 +48,12 @@ export const SemanticElement = styled.section`
 
     .content-text-wrapper {
       min-height: 420px;
-      text-align: justify;
+
+      h2 {
+        margin: inherit;
+        text-align: inherit;
+        margin: 0 0 1rem 0;
+      }
 
       @media ${Breakpoints.desktop},
         ${Breakpoints.laptop},
@@ -81,6 +86,7 @@ export const SemanticElement = styled.section`
 
     h3 {
       margin: 0 0 0.5rem 0;
+      text-align: center;
     }
   }
 `;

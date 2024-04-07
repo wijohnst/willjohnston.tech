@@ -35,7 +35,10 @@ const Project = ({ project, breakpoint }: Props): React.ReactElement => {
             alt="A friendly kitty"
           />
         </div>
-        <div className="content-text-wrapper">{project.content}</div>
+        <div className="content-text-wrapper">
+          <h2>{project.title}</h2>
+          {project.content}
+        </div>
       </div>
       <div className="project-tech-stack-wrapper">
         <h3>Tech Stack</h3>
