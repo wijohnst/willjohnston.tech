@@ -103,6 +103,10 @@ h2 {
 
 h3{
 	font-size: 2rem;
+
+    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+        font-size: 1.75rem;
+    }
 }
 
 h4{
@@ -120,6 +124,13 @@ h6{
 p{
 	line-height: 1.25rem;
 	padding: 0 0 .5rem 0;
+}
+
+label{}
+
+label.caption{
+    font-size: .75rem;
+    font-style: italic;
 }
 `;
 

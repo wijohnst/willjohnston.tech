@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getPackageManifest } from 'query-registry';
+import { getRawPackageManifest } from 'query-registry';
 import { SemanticElement } from '@/stories/Project/TechStackDisplay/TechStackDisplay.style';
 import { PageHeadline } from '@/stories/PageHeadline/PageHeadline';
 import IconLabel from '@/stories/IconLabel/IconLabel';
@@ -23,6 +23,7 @@ export type ManifestData = {
   description?: string;
   homepage?: string;
   name?: string;
+  githubUrl?: string;
 };
 
 type Props = {
@@ -38,11 +39,16 @@ const TechStackDisplay = ({
   React.useEffect(() => {
     const name = controlConfig[selectedControlIndex].packageName;
 
-    getPackageManifest({ name }).then((data) => {
+    getRawPackageManifest({ name }).then((data) => {
+      //@ts-expect-error - data.repository is not defined correctly in type declaration
+      const parsedGithubUrl = data.repository?.url.replace('git+', '') ?? '';
+
+      console.log(parsedGithubUrl);
       setManifestData({
         description: data.description,
         homepage: data.homepage,
         name: data.name,
+        githubUrl: parsedGithubUrl,
       });
     });
   }, [selectedControlIndex]);
@@ -50,6 +56,11 @@ const TechStackDisplay = ({
   return (
     <SemanticElement>
       <div className="details">
+        <div className="heading-wrapper">
+          <PageHeadline>
+            <h4>{manifestData.name ?? '???'}</h4>
+          </PageHeadline>
+        </div>
         <div className="text-wrapper">
           <Description manifestData={manifestData} />
         </div>

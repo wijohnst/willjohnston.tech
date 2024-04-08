@@ -7,11 +7,6 @@ export const SemanticElement = styled.section`
   @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
     background-color: inherit;
   }
-
-  div {
-    background-color: var(--wjt-color-most-prominent);
-  }
-
   .project-title-wrapper {
     background-color: var(--wjt-color-most-prominent);
     padding: 0.25rem;
@@ -49,10 +44,39 @@ export const SemanticElement = styled.section`
     .content-text-wrapper {
       min-height: 420px;
 
-      h2 {
-        margin: inherit;
-        text-align: inherit;
+      .header-controls-wrapper {
+        display: flex;
+        align-items: center;
         margin: 0 0 1rem 0;
+
+        @media ${Breakpoints.tablet},
+          ${Breakpoints.tablet_small},
+          ${Breakpoints.mobile},
+          ${Breakpoints.mobile_small} {
+          flex-direction: column;
+        }
+      }
+
+      .header-controls {
+        display: flex;
+        height: 50px;
+
+        a {
+          height: 50px;
+          width: 50px;
+        }
+
+        svg {
+          margin: 0 0.25rem 0 0.25rem;
+          cursor: pointer;
+        }
+
+        @media ${Breakpoints.tablet},
+          ${Breakpoints.tablet_small},
+          ${Breakpoints.mobile},
+          ${Breakpoints.mobile_small} {
+          margin: 0.5rem 0 0 0;
+        }
       }
 
       @media ${Breakpoints.desktop},
@@ -78,10 +102,13 @@ export const SemanticElement = styled.section`
     }
   }
   .project-tech-stack-wrapper {
-    padding: 0rem 0rem 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 
     @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
-      padding: 0.25rem 1rem 1rem 1rem;
+      margin: 0.5rem 0 0 0;
     }
 
     h3 {

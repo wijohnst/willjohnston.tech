@@ -23,6 +23,8 @@ export type Project = {
   images: ImageConfig[];
   techStack: Partial<TechStackKeys>[];
   content: React.ReactElement;
+  githubLink: string;
+  demoLink: string;
 };
 
 export type Portfolio = Project[];
@@ -64,7 +66,9 @@ export const portfolio: Portfolio = [
         imageDimensions: defaultImageDimensions,
       },
     ],
-    techStack: ['react', 'typescript'],
+    techStack: ['react', 'typescript', 'node', 'express', 'mongo'],
     content: <JhhContent />,
+    githubLink: 'https://github.com/wijohnst/jhh-mono',
+    demoLink: 'https://johnstonhomehub.netlify.app/',
   },
 ];

@@ -8,6 +8,9 @@ import TechStackDisplay, {
 import { ImageKey, Project as ProjectType } from '@/stories/Portfolio';
 import { TechStackKeys, TechStack } from './TechStackDisplay/TechStack';
 
+import GithubIcon from '@@/public/Icons/github-icon.svg';
+import BrowserIcon from '@@/public/Icons/browser-icon.svg';
+
 type Props = {
   project: ProjectType;
   breakpoint: ImageKey;
@@ -36,13 +39,24 @@ const Project = ({ project, breakpoint }: Props): React.ReactElement => {
           />
         </div>
         <div className="content-text-wrapper">
-          <h2>{project.title}</h2>
+          <div className="header-controls-wrapper">
+            <h2>{project.title}</h2>
+            <div className="header-controls">
+              <a target="_blank" href={project.githubLink}>
+                <GithubIcon />
+              </a>
+              <a target="_blank" href={project.demoLink}>
+                <BrowserIcon />
+              </a>
+            </div>
+          </div>
           {project.content}
         </div>
       </div>
       <div className="project-tech-stack-wrapper">
         <h3>Tech Stack</h3>
         <TechStackDisplay controlConfig={controlConfig} />
+        <label className="caption">Select a technology to learn more.</label>
       </div>
     </SemanticElement>
   );
