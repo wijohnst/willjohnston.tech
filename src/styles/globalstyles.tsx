@@ -3,6 +3,7 @@ import {
   ColorValuesThemeAgnostic,
 } from '@/types/app.types';
 import { createGlobalStyle } from 'styled-components';
+import { Breakpoints } from '@/types/app.types';
 
 const GlobalStyle = createGlobalStyle`
 	html, body, div, span, applet, object, iframe,
@@ -94,10 +95,18 @@ h1{
 
 h2 {
 	font-size: 2.75rem;
+
+    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+        font-size: 2.25rem;
+    }
 }
 
 h3{
-	font-size: 2.5rem;
+	font-size: 2rem;
+
+    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+        font-size: 1.75rem;
+    }
 }
 
 h4{
@@ -115,6 +124,13 @@ h6{
 p{
 	line-height: 1.25rem;
 	padding: 0 0 .5rem 0;
+}
+
+label{}
+
+label.caption{
+    font-size: .75rem;
+    font-style: italic;
 }
 `;
 
