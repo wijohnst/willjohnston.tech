@@ -10,10 +10,13 @@ import { TechStackKeys, TechStack } from './TechStackDisplay/TechStack';
 
 import GithubIcon from '@@/public/Icons/github-icon.svg';
 import BrowserIcon from '@@/public/Icons/browser-icon.svg';
+import { DirectionControl } from '../DirectionControl/DirectionControl';
+import { ScrollActions } from '@/pages/Portfolio';
 
 type Props = {
   project: ProjectType;
   breakpoint: ImageKey;
+  handleScrollProject: (scrollAction: ScrollActions) => void;
 };
 
 const getControlConfigFromTechStackKeys = (
@@ -24,7 +27,11 @@ const getControlConfigFromTechStackKeys = (
   });
 };
 
-const Project = ({ project, breakpoint }: Props): React.ReactElement => {
+const Project = ({
+  project,
+  breakpoint,
+  handleScrollProject,
+}: Props): React.ReactElement => {
   const controlConfig = getControlConfigFromTechStackKeys(project.techStack);
 
   return (
@@ -51,6 +58,15 @@ const Project = ({ project, breakpoint }: Props): React.ReactElement => {
             </div>
           </div>
           {project.content}
+        </div>
+        <div className="content-controls-wrapper">
+          <span>Navigate Projects</span>
+          <DirectionControl
+            handleLeftClick={() => handleScrollProject(ScrollActions.DECREMENT)}
+            handleRightClick={() =>
+              handleScrollProject(ScrollActions.INCREMENT)
+            }
+          />
         </div>
       </div>
       <div className="project-tech-stack-wrapper">

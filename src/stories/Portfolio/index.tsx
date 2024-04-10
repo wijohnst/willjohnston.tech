@@ -35,9 +35,9 @@ const getImagePaths = (title: string): ImagePaths => {
   const normalizedTitle = title.toLowerCase().replace(/\s/g, '-');
 
   return {
-    desktop: `${defaultImagePath}/${normalizedTitle}-desktop.png`,
-    tablet: `${defaultImagePath}/${normalizedTitle}-tablet.png`,
-    mobile: `${defaultImagePath}/${normalizedTitle}-mobile.png`,
+    desktop: `${defaultImagePath}/${normalizedTitle}-desktop.gif`,
+    tablet: `${defaultImagePath}/${normalizedTitle}-tablet.gif`,
+    mobile: `${defaultImagePath}/${normalizedTitle}-mobile.gif`,
   };
 };
 
@@ -61,8 +61,8 @@ export const portfolio: Portfolio = [
     title: 'Johnston Home Hub',
     images: [
       {
-        alt: 'A friendly kitty',
-        imagePaths: getImagePaths('Project 1'),
+        alt: 'Johnston Home Hub Demo',
+        imagePaths: getImagePaths('Johnston Home Hub'),
         imageDimensions: defaultImageDimensions,
       },
     ],

@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <NavBar />
       <Component {...pageProps} />
-      <Footer />
+      {/* <Footer /> */}
     </SemanticWrapper>
   );
 }

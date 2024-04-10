@@ -43,7 +43,6 @@ const TechStackDisplay = ({
       //@ts-expect-error - data.repository is not defined correctly in type declaration
       const parsedGithubUrl = data.repository?.url.replace('git+', '') ?? '';
 
-      console.log(parsedGithubUrl);
       setManifestData({
         description: data.description,
         homepage: data.homepage,

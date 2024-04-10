@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const SemanticElement = styled.section`
   p {
-    text-align: left;
+    text-align: center;
+
+    /* text-align: left; */
     line-height: 1.5;
   }
 

@@ -18,7 +18,7 @@ export const SemanticElement = styled.section`
 
   .project-content-wrapper {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
 
     div:has(img) {
       display: flex;
@@ -31,10 +31,36 @@ export const SemanticElement = styled.section`
         border: solid thin var(--wjt-color-stroke-least-prominent);
         padding: 0.25rem;
       }
+
+      @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+        img {
+          border: none;
+        }
+      }
+    }
+
+    .content-controls-wrapper {
+      padding: 1rem 2rem 0 0;
+
+      nav {
+        margin: 1rem 0 0 0;
+      }
+
+      span {
+      }
+
+      @media ${Breakpoints.tablet},
+        ${Breakpoints.tablet_small},
+        ${Breakpoints.mobile},
+        ${Breakpoints.mobile_small} {
+        display: none;
+      }
     }
 
     .content-image-wrapper {
-      padding: 1.5rem;
+      @media ${Breakpoints.desktop}, ${Breakpoints.laptop} {
+        padding: 1.5rem;
+      }
 
       @media ${Breakpoints.mobile_small} {
         padding: 0;
@@ -93,7 +119,9 @@ export const SemanticElement = styled.section`
       }
     }
 
-    @media ${Breakpoints.tablet},
+    @media ${Breakpoints.laptop},
+      ${Breakpoints.laptop_small},
+      ${Breakpoints.tablet},
       ${Breakpoints.tablet_small},
       ${Breakpoints.mobile},
       ${Breakpoints.mobile_small} {

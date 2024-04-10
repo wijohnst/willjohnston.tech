@@ -15,16 +15,12 @@ const DirectionControl = ({
 }: Props): React.ReactElement => {
   return (
     <SemanticElement>
-      <button onClick={handleLeftClick}>
-        <AppIcon aria-role="button">
-          <CaretIcon />
-        </AppIcon>
-      </button>
-      <button onClick={handleRightClick}>
-        <AppIcon>
-          <CaretIcon />
-        </AppIcon>
-      </button>
+      <AppIcon aria-role="button" handleClick={handleLeftClick}>
+        <CaretIcon />
+      </AppIcon>
+      <AppIcon handleClick={handleRightClick}>
+        <CaretIcon />
+      </AppIcon>
     </SemanticElement>
   );
 };

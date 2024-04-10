@@ -5,7 +5,7 @@ export const SemanticElement = styled.nav`
   justify-content: center;
   align-items: center;
 
-  button {
+  div {
     width: 50px;
     height: 50px;
     background-color: transparent;
@@ -18,7 +18,7 @@ export const SemanticElement = styled.nav`
     }
   }
 
-  button:first-of-type {
+  div:first-of-type {
     margin: 0 0.5rem 0 0;
     transform: rotate(180deg);
 
