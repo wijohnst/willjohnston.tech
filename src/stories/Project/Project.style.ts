@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Breakpoints } from '@/types/app.types';
 
 export const SemanticElement = styled.section`
-  padding: 0.33rem;
+  padding: 0.5rem;
 
   @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
     background-color: inherit;
@@ -32,7 +32,10 @@ export const SemanticElement = styled.section`
         padding: 0.25rem;
       }
 
-      @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+      @media ${Breakpoints.tablet},
+        ${Breakpoints.tablet_small},
+        ${Breakpoints.mobile},
+        ${Breakpoints.mobile_small} {
         img {
           border: none;
         }

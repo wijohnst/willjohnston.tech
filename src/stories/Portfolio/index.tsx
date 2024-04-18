@@ -20,7 +20,7 @@ export type ImageConfig = {
 
 export type Project = {
   title: string;
-  images: ImageConfig[];
+  images: ImageConfig;
   techStack: Partial<TechStackKeys>[];
   content: React.ReactElement;
   githubLink: string;
@@ -59,16 +59,40 @@ const defaultImageDimensions: ImageDimensions = {
 export const portfolio: Portfolio = [
   {
     title: 'Johnston Home Hub',
-    images: [
-      {
-        alt: 'Johnston Home Hub Demo',
-        imagePaths: getImagePaths('Johnston Home Hub'),
-        imageDimensions: defaultImageDimensions,
-      },
-    ],
+    images: {
+      alt: 'Johnston Home Hub Demo',
+      imagePaths: getImagePaths('Johnston Home Hub'),
+      imageDimensions: defaultImageDimensions,
+    },
+
     techStack: ['react', 'typescript', 'node', 'express', 'mongo'],
     content: <JhhContent />,
     githubLink: 'https://github.com/wijohnst/jhh-mono',
     demoLink: 'https://johnstonhomehub.netlify.app/',
+  },
+  {
+    title: 'Thriving Park',
+    images: {
+      alt: 'Thriving Park',
+      imagePaths: getImagePaths('Thriving Park'),
+      imageDimensions: defaultImageDimensions,
+    },
+
+    techStack: ['react', 'typescript', 'node', 'express', 'mongo'],
+    content: <></>,
+    githubLink: 'https://github.com/wijohnst/jhh-mono',
+    demoLink: 'https://johnstonhomehub.netlify.app/',
+  },
+  {
+    title: '@wijohnst/color-console',
+    images: {
+      alt: 'Color Console',
+      imagePaths: getImagePaths('@wijohnst/color-console'),
+      imageDimensions: defaultImageDimensions,
+    },
+    techStack: ['typescript', 'node'],
+    content: <></>,
+    githubLink: '',
+    demoLink: '',
   },
 ];
