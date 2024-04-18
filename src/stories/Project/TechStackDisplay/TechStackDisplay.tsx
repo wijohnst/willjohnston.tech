@@ -37,20 +37,22 @@ const TechStackDisplay = ({
   const [manifestData, setManifestData] = React.useState<ManifestData>({});
 
   React.useEffect(() => {
-    const name = controlConfig[selectedControlIndex].packageName;
+    const name = controlConfig[selectedControlIndex]?.packageName;
 
-    getRawPackageManifest({ name }).then((data) => {
-      //@ts-expect-error - data.repository is not defined correctly in type declaration
-      const parsedGithubUrl = data.repository?.url.replace('git+', '') ?? '';
+    if (name) {
+      getRawPackageManifest({ name }).then((data) => {
+        //@ts-expect-error - data.repository is not defined correctly in type declaration
+        const parsedGithubUrl = data.repository?.url.replace('git+', '') ?? '';
 
-      setManifestData({
-        description: data.description,
-        homepage: data.homepage,
-        name: data.name,
-        githubUrl: parsedGithubUrl,
+        setManifestData({
+          description: data.description,
+          homepage: data.homepage,
+          name: data.name,
+          githubUrl: parsedGithubUrl,
+        });
       });
-    });
-  }, [selectedControlIndex]);
+    }
+  }, [selectedControlIndex, controlConfig]);
 
   return (
     <SemanticElement>

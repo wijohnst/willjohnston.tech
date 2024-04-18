@@ -39,10 +39,10 @@ const Project = ({
       <div className="project-content-wrapper">
         <div className="content-image-wrapper">
           <Image
-            src={project.images[0].imagePaths[breakpoint]}
-            height={project.images[0].imageDimensions[breakpoint].height}
-            width={project.images[0].imageDimensions[breakpoint].width}
-            alt="A friendly kitty"
+            src={project.images.imagePaths[breakpoint]}
+            height={project.images.imageDimensions[breakpoint].height}
+            width={project.images.imageDimensions[breakpoint].width}
+            alt={project.images.alt}
           />
         </div>
         <div className="content-text-wrapper">
