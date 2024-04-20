@@ -1,23 +1,25 @@
 import React from 'react';
 
 import { OfferingElement } from './Offering.style';
-import { PageHeadline } from '@/stories/PageHeadline/PageHeadline';
+import { Offerings } from '@/pages/Services';
 
 type Props = {
   isActive: boolean;
-  heading: string;
-  activeContent: React.ReactElement;
+  heading: Offerings;
+  children: React.ReactNode;
+  handleClick: (offering: Offerings) => void;
 };
 
 const Offering = ({
   isActive,
   heading,
-  activeContent = <DefaultContent />,
+  children = <DefaultContent />,
+  handleClick,
 }: Props): React.ReactElement => {
   return (
-    <OfferingElement isActive={isActive}>
+    <OfferingElement isActive={isActive} onClick={() => handleClick(heading)}>
       <h2>{heading}</h2>
-      {isActive && activeContent}
+      <div>{isActive && children}</div>
     </OfferingElement>
   );
 };

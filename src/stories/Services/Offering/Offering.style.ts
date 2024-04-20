@@ -6,8 +6,7 @@ export const OfferingElement = styled.li<{
 }>`
   display: flex;
   flex-flow: column;
-  min-height: ${({ isActive }) => (isActive ? '200px' : '0')};
-  border-radius: 10px;
+  min-height: ${({ isActive }) => (isActive ? '400px' : '0')};
   padding: 0.75rem;
   list-style: none;
   background-color: ${({ isActive }) =>
@@ -15,8 +14,6 @@ export const OfferingElement = styled.li<{
   color: ${({ isActive }) =>
     isActive && ColorValuesLightTheme['color-most-prominent']};
   transition: all 0.5s ease-in-out;
-
-  max-width: 500px;
 
   h2 {
     text-align: center;
@@ -26,5 +23,10 @@ export const OfferingElement = styled.li<{
     @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
       font-size: 1.5rem;
     }
+  }
+
+  div:first-of-type {
+    width: 50%;
+    place-self: center;
   }
 `;
