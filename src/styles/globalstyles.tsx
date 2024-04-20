@@ -56,6 +56,16 @@ table {
 	--wjt-color-accent: ${ColorValuesThemeAgnostic['color-accent']};
 	--wjt-color-stroke-least-prominent: ${ColorValuesLightTheme['stroke-least-prominent']};
 
+    --wjt-border-radius-light: 10px;
+
+    --wjt-stroke-light: 1px;
+    --wjt-stroke-medium: 3px;
+    --wjt-stoke-heavy: 5px;
+
+    --wjt-padding-light: 5px;
+    --wjt-padding-medium: 10px;
+    --wjt-padding-heavy: 20px;
+
 	background-color: var(--wjt-color-most-prominent);
 	color: var(--wjt-color-stroke-least-prominent);
 
