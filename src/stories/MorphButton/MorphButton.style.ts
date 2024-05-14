@@ -21,8 +21,6 @@ export const MorphButton = styled(motion.button)<{
   border: solid var(--wjt-stroke-light);
   border-color: ${ColorValuesLightTheme['color-most-prominent']};
 
-  max-width: 11rem;
-
   h3 {
     font-size: 1rem;
     color: ${ColorValuesLightTheme['color-most-prominent']};

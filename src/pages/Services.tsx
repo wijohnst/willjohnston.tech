@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ServicesWrapper } from '@/stories/Services/Services.style';
 import Offering from '@/stories/Services/Offering/Offering';
 import { PageHeadline } from '@/stories/PageHeadline/PageHeadline';
+import { AppDev } from '@/stories/Services/Offering/OfferingContent';
 
 interface Props {}
 
@@ -38,10 +39,7 @@ const Services = ({}: Props) => {
           heading={Offerings.APP_DEV}
           handleClick={handleOfferingClick}
         >
-          <p>App Dev</p>
-          <button onClick={() => console.log('CTA CLICK')}>
-            <h3>Learn More</h3>
-          </button>
+          <AppDev isActive={activeOffering === Offerings.APP_DEV} />
         </Offering>
         <Offering
           isActive={activeOffering === Offerings.STATIC}

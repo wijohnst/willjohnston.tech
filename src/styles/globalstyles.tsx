@@ -136,11 +136,22 @@ p{
 	padding: 0 0 .5rem 0;
 }
 
-label{}
+label{
+    text-transform: uppercase;
+}
 
 label.caption{
     font-size: .75rem;
     font-style: italic;
+}
+
+input {
+    all: unset;
+
+    border: solid thin var(--wjt-color-stroke-least-prominent);
+    border-radius: 0.25rem;
+
+    height: 1.1rem;
 }
 `;
 

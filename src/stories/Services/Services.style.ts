@@ -24,7 +24,6 @@ export const ServicesWrapper = styled.section`
     button {
       background-color: transparent;
       border: solid ${ColorValuesLightTheme['color-most-prominent']};
-      align-self: center;
       color: ${ColorValuesLightTheme['color-most-prominent']};
       border-radius: 0.25rem;
       padding: 0.5rem;

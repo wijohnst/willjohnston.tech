@@ -10,9 +10,17 @@ type Props = {
 const MorphButton = ({ label, children }: Props): React.ReactElement => {
   const [isActive, setIsActive] = React.useState(false);
 
+  const handleClick = () => {
+    if (isActive) {
+      return;
+    }
+
+    setIsActive(true);
+  };
+
   return (
-    <Button isActive onClick={() => setIsActive(!isActive)} layout>
-      {!isActive && <h3>{label}</h3>}
+    <Button isActive onClick={() => handleClick()} layout>
+      {!isActive && <h3 onClick={() => setIsActive(false)}>{label}</h3>}
       {isActive && children}
     </Button>
   );

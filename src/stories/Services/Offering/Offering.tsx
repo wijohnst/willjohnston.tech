@@ -17,8 +17,10 @@ const Offering = ({
   handleClick,
 }: Props): React.ReactElement => {
   return (
-    <OfferingElement isActive={isActive} onClick={() => handleClick(heading)}>
-      <h2>{heading}</h2>
+    <OfferingElement isActive={isActive}>
+      <h2 onClick={() => handleClick(heading)} role="button">
+        {heading}
+      </h2>
       <div>{isActive && children}</div>
     </OfferingElement>
   );
