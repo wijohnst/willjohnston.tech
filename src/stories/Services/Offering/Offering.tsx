@@ -1,7 +1,10 @@
 import React from 'react';
 
-import { OfferingElement } from './Offering.style';
+import { OfferingElement, OfferingHeader } from './Offering.style';
 import { Offerings } from '@/pages/Services';
+
+import { motion } from 'framer-motion';
+import { ColorValuesLightTheme } from '@/types/app.types';
 
 type Props = {
   isActive: boolean;
@@ -16,11 +19,36 @@ const Offering = ({
   children = <DefaultContent />,
   handleClick,
 }: Props): React.ReactElement => {
+  const animateOffering = (isActive: boolean) => {
+    return isActive ? { minHeight: '400px' } : { minHeight: '0px' };
+  };
+
+  const animateHeading = (isActive: boolean) => {
+    return isActive
+      ? {
+          color: ColorValuesLightTheme['color-most-prominent'],
+        }
+      : {
+          color: ColorValuesLightTheme['color-least-prominent'],
+        };
+  };
+
   return (
-    <OfferingElement isActive={isActive}>
-      <h2 onClick={() => handleClick(heading)} role="button">
+    <OfferingElement
+      active={isActive}
+      animate={animateOffering(isActive)}
+      exit={{ minHeight: '0px' }}
+      transition={{ duration: 0.5 }}
+    >
+      <OfferingHeader
+        onClick={() => handleClick(heading)}
+        animate={animateHeading(isActive)}
+        transition={{ duration: 0.5 }}
+        role="button"
+        active={isActive}
+      >
         {heading}
-      </h2>
+      </OfferingHeader>
       <div>{isActive && children}</div>
     </OfferingElement>
   );

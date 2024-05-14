@@ -26,7 +26,6 @@ export const OfferingContentWrapper = styled.div`
   }
 
   .form-content {
-    width: clamp(15rem, 100%, 33rem);
     padding: 1rem 0.2rem 0.2rem 0.2rem;
     background-color: ${ColorValuesLightTheme['color-most-prominent']};
     border: solid thin ${ColorValuesLightTheme['color-most-prominent']};
