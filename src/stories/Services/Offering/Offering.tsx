@@ -44,6 +44,7 @@ const Offering = ({
         onClick={() => handleClick(heading)}
         animate={animateHeading(isActive)}
         transition={{ duration: 0.5 }}
+        exit={{ color: ColorValuesLightTheme['color-least-prominent'] }}
         role="button"
         active={isActive}
       >

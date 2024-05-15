@@ -23,6 +23,10 @@ export const OfferingHeader = styled(motion.h2)<{
   active: boolean;
 }>`
   text-align: ${({ active }) => (active ? 'left' : 'center')};
+  color: ${({ active }) =>
+    active
+      ? ColorValuesLightTheme['color-most-prominent']
+      : ColorValuesLightTheme['color-least-prominent']};
   margin: 0 0 1rem 0;
   word-break: word;
   font-size: 2.5rem;
