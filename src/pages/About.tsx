@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import * as React from 'react';
 
-import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+import useGetMediaQuery from '@/hooks/useGetMediaQuery';
 
 import { AboutPic } from '@/stories/About/AboutPic/AboutPic';
 import { getAboutPicDimensionsFromBreakpoint } from '@/stories/About/About.utils';

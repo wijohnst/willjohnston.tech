@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { OfferingContentWrapper } from './OfferingContent.style';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 type Props = {
   isActive: boolean;
@@ -38,10 +38,15 @@ const AppDev = ({ isActive }: Props): React.ReactElement => {
           excepteur tempor.
         </p>
         {isFormVisible ? (
-          <div className="form-content">
+          <motion.div
+            className="form-content"
+            initial={{ opacity: 0 }}
+            animate={isFormVisible ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <div className="form-wrapper">
               <h3 onClick={() => setIsFormVisible(false)} role="button">
-                Contact Us
+                Contact Me
               </h3>
               <form>
                 <p>
@@ -56,9 +61,14 @@ const AppDev = ({ isActive }: Props): React.ReactElement => {
                 </p>
                 <label>Name</label>
                 <input type="text"></input>
+                <label>Email</label>
+                <input type="email"></input>
+                <button type="submit">
+                  <h4>submit</h4>
+                </button>
               </form>
             </div>
-          </div>
+          </motion.div>
         ) : (
           <button onClick={() => setIsFormVisible(true)}>
             <h3>Ready to build your app?</h3>

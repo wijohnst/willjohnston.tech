@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { SemanticElement } from '@/stories/About/AboutPic/AboutPic.style';
 import Image from 'next/image';
-import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+import useGetMediaQuery from '@/hooks/useGetMediaQuery';
 
 type AboutPicProps = {
   height?: number;

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { SemanticElement } from '@/stories/Blog/Headlines/HighlightPost/HighlightPost.style';
 import { HeadlineMetaData, ImagePaths } from '@/stories/Blog/Blog.types';
-import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+import useGetMediaQuery from '@/hooks/useGetMediaQuery';
 import { getMaxWidth, getImagePath } from '../Headlines.utils';
 import { highlightPostImageDimensions } from '@/stories/Blog/Blog.types';
 

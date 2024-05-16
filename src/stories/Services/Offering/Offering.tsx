@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 
 import { OfferingElement, OfferingHeader } from './Offering.style';
 import { Offerings } from '@/pages/Services';
 
-import { motion } from 'framer-motion';
 import { ColorValuesLightTheme } from '@/types/app.types';
 
 type Props = {

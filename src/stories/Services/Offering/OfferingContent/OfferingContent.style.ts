@@ -34,6 +34,7 @@ export const OfferingContentWrapper = styled(motion.div)`
 
       h3 {
         color: ${ColorValuesLightTheme['color-least-prominent']};
+        margin: 0 0 1rem 0.25rem;
       }
 
       form {
@@ -42,16 +43,36 @@ export const OfferingContentWrapper = styled(motion.div)`
         display: flex;
         flex-flow: column;
 
-        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        /* padding: 0.5rem 0.5rem 0.5rem 0.5rem; */
+        padding: 1rem 1rem 1rem 1rem;
+
+        label {
+          margin: 0 0 0.25rem 0;
+        }
+
+        label + input {
+          margin: 0 0 1rem 0;
+        }
 
         input {
           border-color: ${ColorValuesLightTheme['color-most-prominent']};
 
-          width: clamp(12.5rem, 100%, 33rem);
+          width: clamp(9rem, 100%, 33rem);
         }
 
         p {
           text-justify: newspaper;
+        }
+
+        button {
+          h4 {
+            color: ${ColorValuesLightTheme['color-most-prominent']};
+            width: 100%;
+
+            font-size: 1rem;
+
+            margin: 0;
+          }
         }
       }
     }
