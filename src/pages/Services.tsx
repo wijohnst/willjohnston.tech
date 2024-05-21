@@ -6,6 +6,10 @@ import {
   AppDev,
   StaticSites,
 } from '@/stories/Services/Offering/OfferingContent';
+import { Design } from '@/stories/Services/Offering/OfferingContent/Design';
+import { Graphic } from '@/stories/Services/Offering/OfferingContent/Graphic';
+import { Mentoring } from '@/stories/Services/Offering/OfferingContent/Mentoring';
+import { Consulting } from '@/stories/Services/Offering/OfferingContent/Consulting';
 
 interface Props {}
 
@@ -56,40 +60,28 @@ const Services = ({}: Props) => {
           heading={Offerings.UI}
           handleClick={handleOfferingClick}
         >
-          <p>UI Design</p>
-          <button>
-            <h3>Learn More</h3>
-          </button>
+          <Design isActive={activeOffering === Offerings.UI} />
         </Offering>
         <Offering
           isActive={activeOffering === Offerings.GRAPHIC}
           heading={Offerings.GRAPHIC}
           handleClick={handleOfferingClick}
         >
-          <p>Graphic Design</p>
-          <button>
-            <h3>Learn More</h3>
-          </button>
+          <Graphic isActive={activeOffering === Offerings.GRAPHIC} />
         </Offering>
         <Offering
           isActive={activeOffering === Offerings.MENTORING}
           heading={Offerings.MENTORING}
           handleClick={handleOfferingClick}
         >
-          <p>Professional Mentoring</p>
-          <button>
-            <h3>Learn More</h3>
-          </button>
+          <Mentoring isActive={activeOffering === Offerings.MENTORING} />
         </Offering>
         <Offering
           isActive={activeOffering === Offerings.CONSULTING}
           heading={Offerings.CONSULTING}
           handleClick={handleOfferingClick}
         >
-          <p>Consulting</p>
-          <button>
-            <h3>Learn More</h3>
-          </button>
+          <Consulting isActive={activeOffering === Offerings.CONSULTING} />
         </Offering>
       </ul>
     </ServicesWrapper>

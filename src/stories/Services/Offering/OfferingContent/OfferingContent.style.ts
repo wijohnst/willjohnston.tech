@@ -1,4 +1,4 @@
-import { ColorValuesLightTheme } from '@/types/app.types';
+import { Breakpoints, ColorValuesLightTheme } from '@/types/app.types';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -20,6 +20,9 @@ export const OfferingContentWrapper = styled(motion.div)`
 
     p {
       line-height: 1.5;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
     }
 
     button {
@@ -60,10 +63,6 @@ export const OfferingContentWrapper = styled(motion.div)`
           width: clamp(9rem, 100%, 33rem);
         }
 
-        p {
-          text-justify: newspaper;
-        }
-
         button {
           h4 {
             color: ${ColorValuesLightTheme['color-most-prominent']};
@@ -73,6 +72,51 @@ export const OfferingContentWrapper = styled(motion.div)`
 
             margin: 0;
           }
+        }
+      }
+    }
+  }
+
+  @media ${Breakpoints.tablet}, ${Breakpoints.tablet_small} {
+    .offering-content {
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+    .offering-content {
+      padding: 0.25rem;
+
+      h2 {
+        text-align: center;
+        color: red;
+      }
+
+      p {
+        margin: 0.25rem 0.25rem 0.25rem 0.25rem;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .form-content {
+        background-color: ${ColorValuesLightTheme['color-least-prominent']};
+        padding: 0.25rem 0.25rem 0.25rem 0.25rem;
+
+        p:first-of-type {
+          margin: 0 0.25rem 0.25rem 0.25rem;
+        }
+
+        h3 {
+          text-align: center;
+          color: ${ColorValuesLightTheme['color-most-prominent']};
+          margin: 0.25rem 0 0 0;
+        }
+
+        form {
         }
       }
     }

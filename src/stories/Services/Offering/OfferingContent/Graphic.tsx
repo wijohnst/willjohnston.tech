@@ -8,7 +8,7 @@ type Props = {
   isActive: boolean;
 };
 
-const StaticSites = ({ isActive }: Props): React.ReactElement => {
+const Graphic = ({ isActive }: Props): React.ReactElement => {
   const [isFormVisible, setIsFormVisible] = React.useState<boolean>(false);
 
   const variants = {
@@ -75,7 +75,7 @@ const StaticSites = ({ isActive }: Props): React.ReactElement => {
           </motion.div>
         ) : (
           <button onClick={() => setIsFormVisible(true)}>
-            <h3>Ready to launch your static site?</h3>
+            <h3>Ready to start designing?</h3>
           </button>
         )}
       </div>
@@ -83,4 +83,4 @@ const StaticSites = ({ isActive }: Props): React.ReactElement => {
   );
 };
 
-export { StaticSites };
+export { Graphic };

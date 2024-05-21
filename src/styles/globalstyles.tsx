@@ -134,6 +134,14 @@ h6{
 p{
 	line-height: 1.25rem;
 	padding: 0 0 .5rem 0;
+    
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+
+    @media ${Breakpoints.mobile}, ${Breakpoints.mobile_small} {
+        font-size: 1.25rem;
+    }
 }
 
 label{
