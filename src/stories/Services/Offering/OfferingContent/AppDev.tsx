@@ -23,13 +23,13 @@ const AppDev = ({ isActive }: Props): React.ReactElement => {
       transition={{ delay: 0.5, duration: 0.5 }}
     >
       <div className="offering-content">
-        <motion.p transition={{ delay: 0.5, duration: 0.5 }}>
+        <p>
           Pariatur dolore ex laborum sit nisi nulla adipisicing consectetur.
           Exercitation occaecat pariatur Lorem ad pariatur eu deserunt labore
           nostrud ea tempor voluptate amet nulla. Occaecat velit ipsum voluptate
           amet labore elit laborum ut culpa elit do cillum sint. Proident
           deserunt minim non voluptate aliquip do incididunt.
-        </motion.p>
+        </p>
         <p>
           Aliqua anim sunt consequat est aliquip voluptate id deserunt aliqua
           non tempor sunt consectetur velit. Irure ex consequat dolor cillum
