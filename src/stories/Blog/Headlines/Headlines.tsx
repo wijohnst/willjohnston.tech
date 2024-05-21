@@ -7,7 +7,7 @@ import { SemanticElement } from '@/stories/Blog/Headlines/Headlines.style';
 import FeaturedPost from './FeaturedPost/FeaturedPost';
 import { HighlightPost } from './HighlightPost/HighlightPost';
 
-import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+import useGetMediaQuery from '@/hooks/useGetMediaQuery';
 import { useRouter } from 'next/router';
 
 export type Props = {};

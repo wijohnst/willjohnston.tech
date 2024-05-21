@@ -2,7 +2,10 @@ import * as React from 'react';
 import { ServicesWrapper } from '@/stories/Services/Services.style';
 import Offering from '@/stories/Services/Offering/Offering';
 import { PageHeadline } from '@/stories/PageHeadline/PageHeadline';
-import { AppDev } from '@/stories/Services/Offering/OfferingContent';
+import {
+  AppDev,
+  StaticSites,
+} from '@/stories/Services/Offering/OfferingContent';
 
 interface Props {}
 
@@ -46,10 +49,7 @@ const Services = ({}: Props) => {
           heading={Offerings.STATIC}
           handleClick={handleOfferingClick}
         >
-          <p>Static Sites</p>
-          <button>
-            <h3>Learn More</h3>
-          </button>
+          <StaticSites isActive={activeOffering === Offerings.STATIC} />
         </Offering>
         <Offering
           isActive={activeOffering === Offerings.UI}

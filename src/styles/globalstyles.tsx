@@ -138,6 +138,7 @@ p{
 
 label{
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 label.caption{
@@ -152,7 +153,28 @@ input {
     border-radius: 0.25rem;
 
     height: 1.1rem;
+
+    padding: .25rem;
 }
+
+button {
+    cursor: pointer;
+
+    border: solid thin var(--wjt-color-stroke-least-prominent);
+    border-radius: 0.25rem;
+
+    padding: .25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover{
+        z-index: 99;
+        background-color: red;
+    }
+}
+
 `;
 
 export default GlobalStyle;
