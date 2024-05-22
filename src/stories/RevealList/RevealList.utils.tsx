@@ -1,6 +1,4 @@
-import { m } from 'framer-motion';
 import * as React from 'react';
-import { RevealList } from './RevealList';
 import RevealListContent from './RevealListContent/RevealListContent';
 
 export type RevealListItem = {

@@ -1,23 +1,55 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 
-import { OfferingElement } from './Offering.style';
-import { PageHeadline } from '@/stories/PageHeadline/PageHeadline';
+import { OfferingElement, OfferingHeader } from './Offering.style';
+import { Offerings } from '@/pages/Services';
+
+import { ColorValuesLightTheme } from '@/types/app.types';
 
 type Props = {
   isActive: boolean;
-  heading: string;
-  activeContent: React.ReactElement;
+  heading: Offerings;
+  children: React.ReactNode;
+  handleClick: (offering: Offerings) => void;
 };
 
 const Offering = ({
   isActive,
   heading,
-  activeContent = <DefaultContent />,
+  children = <DefaultContent />,
+  handleClick,
 }: Props): React.ReactElement => {
+  const animateOffering = (isActive: boolean) => {
+    return isActive ? { minHeight: '400px' } : { minHeight: '0px' };
+  };
+
+  const animateHeading = (isActive: boolean) => {
+    return isActive
+      ? {
+          color: ColorValuesLightTheme['color-most-prominent'],
+        }
+      : {
+          color: ColorValuesLightTheme['color-least-prominent'],
+        };
+  };
+
   return (
-    <OfferingElement isActive={isActive}>
-      <h2>{heading}</h2>
-      {isActive && activeContent}
+    <OfferingElement
+      active={isActive}
+      animate={animateOffering(isActive)}
+      exit={{ minHeight: '0px' }}
+      transition={{ duration: 0.5 }}
+    >
+      <OfferingHeader
+        onClick={() => handleClick(heading)}
+        animate={animateHeading(isActive)}
+        transition={{ duration: 0.5 }}
+        exit={{ color: ColorValuesLightTheme['color-least-prominent'] }}
+        role="button"
+        active={isActive}
+      >
+        {heading}
+      </OfferingHeader>
+      <div>{isActive && children}</div>
     </OfferingElement>
   );
 };

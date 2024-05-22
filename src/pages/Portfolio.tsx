@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Project } from '@/stories/Project/Project';
 import { portfolio } from '@/stories/Portfolio';
-import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+import useGetMediaQuery from '@/hooks/useGetMediaQuery';
 import { PageHeadline } from '@/stories/PageHeadline/PageHeadline';
 import { SemanticElement } from './Portfolio.style';
 

@@ -7,7 +7,7 @@ import {
   ImagePaths,
   featuredPostImageDimensions,
 } from '@/stories/Blog/Blog.types';
-import useGetMediaQuery from '@/hooks/useGetMediaQuery/useGetMediaQuery';
+import useGetMediaQuery from '@/hooks/useGetMediaQuery';
 import { getImagePath, getMaxWidth } from '../Headlines.utils';
 
 type Props = {
